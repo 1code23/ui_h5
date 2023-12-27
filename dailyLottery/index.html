@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>天天抽奖</title>
+	<style>
+
+	</style>
+</head>
+
+<body>
+	<div class="box ">
+		<div class="Wrap disNone">
+			<!-- 活动规则 -->
+			<div class="feedback">反馈</div>
+			<img src="./src/images/pageBack.png" class="disib" id="pageBack" />
+			<div class="rulesEntry tr">活动规则</div>
+			<div class="lotteryNumWrap tc">
+				<span class="lotteryNum">
+					今日可抽
+					<span class="lotteryNumTxt">4</span>
+					次
+				</span>
+			</div>
+			<!-- 转盘 -->
+			<div class="turntableRect">
+				<img src="./src/images/selectPrize.png" alt="" class="selectPrize disib disNone">
+				<div id="turntableBox" class="turntableBox">
+					<!-- <div class="prizeItem tc fc ac" style="transform: rotate(0deg);">
+					<span class="prizeName">现金</span>
+					<span class="prizeNum disib"><span class="moneysign">￥</span>100</span>
+				</div>
+				<div class="prizeItem tc" style="transform: rotate(45deg);">
+					<span class="prizeName">现金</span>
+					<span class="prizeNum disib"><span class="moneysign">￥</span>100</span>
+				</div>
+				<div class="prizeItem tc" style="transform: rotate(90deg);">3</div>
+				<div class="prizeItem tc" style="transform: rotate(135deg);">4</div>
+				<div class="prizeItem tc" style="transform: rotate(180deg);">5</div>
+				<div class="prizeItem tc" style="transform: rotate(225deg);">6</div>
+				<div class="prizeItem tc" style="transform: rotate(270deg);">7</div>
+				<div class="prizeItem tc" style="transform: rotate(315deg);">8</div> -->
+				</div>
+				<img src="./src/images/pointer.png" alt="" id="pointer" class="pointer pointerAni disib">
+				<img src="./src/images/pointerEnd.png" alt="" id="pointerEnd" class="pointer disib disNone">
+				<div id="rotatefire" class="rotatefire disNone"></div>
+				<div id="hightcircle" class="hightcircle disNone"></div>
+				<img src="./src/images/pedestal.png" alt="" class="turntableBase">
+				<div id="popRect" class="popRect ">
+					<!-- <span class="popItem">j***抽到了8.8元红包</span> -->
+				</div>
+			</div>
+			<!-- 广告领取机会 -->
+			<div class="receiveNumBox panel disfr jsb">
+				<div class="needinfo fc">
+					<span class="txt1"></span>
+					<span class="txt2">每天看视频，天天来抽奖</span>
+					<span class="txt3">
+						还有
+						<span class="txtNum">4 </span>
+						<span class="txtCount">次</span>
+						抽奖机会没有领取
+					</span>
+				</div>
+				<div class="receiveBox  tr fc ac jc">
+					<div class="overTime tr disfr ac jfd weiguoqi">
+						<span class="overTxt disib over">距过期</span>
+						<span class="timeRect disib tc countDownH">06</span>
+						<span class="sign">:</span>
+						<span class="timeRect disib tc countDownM">06</span>
+						<span class="sign">:</span>
+						<span class="timeRect disib tc countDownS">06</span>
+					</div>
+					<div class="receiveBtn tc marac ">
+						立即领取
+					</div>
+					<div class="overTime tr disfr ac jfd disNone yiguoqi">
+						<span class="timeRect disib tc countDownHE">06</span>
+						<span class="sign">:</span>
+						<span class="timeRect disib tc countDownME">06</span>
+						<span class="sign">:</span>
+						<span class="timeRect disib tc countDownSE">06</span>
+						<span class="overTxt disib canGet ">可再领取</span>
+					</div>
+				</div>
+			</div>
+			<!-- 我的奖品 -->
+			<div class="myPrize panel disfr ac jsb boxzB">
+				<div class="prizeBox fc tc  flex1 ac prizeTicket">
+					<span class="prizeNum"></span>
+					<span class="prizeType">我的奖券</span>
+					<span class="touse disib boxzB goUselottery">去使用</span>
+				</div>
+
+				<div class="splitLine"></div>
+
+				<div class="prizeBox fc tc  flex1 ac prizeMoney">
+					<span class="prizeNum"></span>
+					<span class="prizeType">我的奖金</span>
+					<span class="touse disib boxzB onWithDraw">去提现</span>
+				</div>
+			</div>
+			<!--设置提醒 -->
+			<div class="panel remindSet disfr ac">
+				<div class="remindBox flex1">
+					<div class="setTxt">设置抽奖提醒</div>
+					<div class="setTxt2">添加抽奖提醒，每日抽奖不忘记</div>
+				</div>
+				<div class="remindBtn tc">添加提醒</div>
+			</div>
+			<!-- 用户协议 -->
+			<div class="agreement tc">
+				客服热线
+			</div>
+			<!-- 公司 -->
+			<div class="company tc">
+				本次活动抽奖由 上海渠杰信息科技有限公司 公司提供
+			</div>
+
+			<!-- 奖励弹窗 -->
+			<div class="toastBox disNone">
+				<div class="hotServe fixedAuto boxzB disNone">
+					<div class="closeIcon tr">
+						<span class="hotClose disib"></span>
+					</div>
+					<div class="hotTit tc">客服热线</div>
+					<div class="phoneNum tc">159-2268-3636</div>
+					<p class="tc">我们的工作时间是每天9:30-17:30</p>
+					<p class="tc">欢迎在「活动主页-活动反馈」提交意见哦</p>
+					<div class="hotBtn tc">立即拨打</div>
+				</div>
+				<div class="toast price tc disNone">
+					<!-- <div class="priceNum tc"><span class="moneysign">￥</span>800</div>
+				<div class="toastInfo tc">您抽到了800元现金奖励！</div>
+				<div class="prizeNews tl">
+					<p>获奖须知：</p>
+					<p>根据《个人所得税法》要求，中奖金额属于个人偶然所得，须缴纳20%的个人所得税，该税额将在提现时扣取</p>
+				</div>
+				<div class="getNum tc">看个广告，再抽一次</div>
+				<div class="notes">注：中奖的奖金存放在我的奖金中</div>
+				<img class="closeMoney" src="./src/images/close.png" alt=""> -->
+				</div>
+				<div class="toastLottery disNone">
+					<!-- 
+				<div class="lotteryBg disfr">
+					<div class="lotteryNum tc noWapp">
+						30<span class="num2">元</span>
+					</div>
+					<div class="flex1 fc lottery">
+						<p class="tc disfr ac jc">
+							<img class="lotteryLogo" src="./src/images/lotteryLogo.png" alt="">
+							<span class="lotteryName tl flex1 noWapp">滴滴快车券</span>
+						</p>
+						<div class="lotteryTime tc">有效时间:2021-12-30 </div>
+					</div>
+				</div>
+				<div class="lotteryInfo tc">
+					可在“活动首页— 我的奖券”中查看
+				</div>
+				<div class="lotteryBtns disfr ac jsb">
+					<div class="cancel lotteryBtn tc">放弃领取</div>
+					<div class="confim lotteryBtn tc">立即领取</div>
+				</div> -->
+				</div>
+				<!-- 抽奖规则 -->
+				<div class="ruleToast tc disNone">
+					<div class="ruleContent boxzB fc">
+						<div class="ruleTitle tc">活动规则</div>
+						<div class="ruleTxtList flex1 tl">
+							<div class="rulelistItem">
+								<div class="ruleTitle2 tl ">活动对象</div>
+								<p class="ruleTxt">参与本活动前，请您仔细阅读活动规则及相关条款。凡参与本次活动，则视为您已阅读、理解并同意活动规则及注意事项全部内容。</p>
+							</div>
+							<div class="rulelistItem">
+								<div class="ruleTitle2 tl ">活动内容</div>
+								<p class="ruleTxt">您可通过完成“天天抽现金”活动里指定任务,如:观看视频广告来获取抽奖机会，然后可以参与抽奖。</p>
+							</div>
+							<div class="rulelistItem">
+								<div class="ruleTitle2 tl ">活动奖品</div>
+								<p class="ruleTxt">
+									目前共提供7等现金奖项和多种优惠券作为抽奖的奖项内容，已获得的现金奖励和优惠券可在“我的奖金”和“我的奖券”中查看，奖金奖励提现需要您提供手机号码，以提现至您指定的账户,优惠券可至对应的优惠券平台使用。
+								</p>
+							</div>
+							<div class="rulelistItem">
+								<div class="ruleTitle2 tl ">活动入口</div>
+								<p class="ruleTxt">通过点击活动海报中的活动按钮和负一屏中的天天抽现金栏目里的立即抽奖按钮进入“天天抽现金”活动主页。</p>
+							</div>
+							<div class="rulelistItem">
+								<div class="ruleTitle2 tl ">活动时间</div>
+								<p class="ruleTxt">2022年1月1日-2022年6月1日</p>
+							</div>
+							<div class="rulelistItem ruleItemTable">
+								<div class="ruleTitle2 tl ">中奖概率</div>
+								<p class="ruleTxt prizeProbability"></p>
+								<!-- <div class="tableBox">
+									<table class="ruleTable"  >
+										<tr>
+											<td>奖金梯度</td>
+											<td>奖品数量</td>
+											<td>概率</td>
+											<td>概率（百分比）</td>
+											<td>总奖金金额</td>
+										</tr>
+										<tr>
+											<td>800</td>
+											<td>1</td>
+											<td>1/300000</td>
+											<td>0.0003%</td>
+											<td>800</td>
+										</tr>
+										<tr>
+											<td>300</td>
+											<td>3</td>
+											<td>3/300000</td>
+											<td>0.0010%</td>
+											<td>900</td>
+										</tr>
+										<tr>
+											<td>100</td>
+											<td>5</td>
+											<td>3/300000</td>
+											<td>0.0010%</td>
+											<td>900</td>
+										</tr>
+										<tr>
+											<td>50</td>
+											<td>10</td>
+											<td>10/300000</td>
+											<td>0.0033%</td>
+											<td>500</td>
+										</tr>
+										<tr>
+											<td>30</td>
+											<td>20</td>
+											<td>20/300000</td>
+											<td>0.0067%</td>
+											<td>600</td>
+										</tr>
+										<tr>
+											<td>10</td>
+											<td>50</td>
+											<td>50/300000</td>
+											<td>0.0167%</td>
+											<td>500</td>
+										</tr>
+										<tr>
+											<td>1</td>
+											<td>520</td>
+											<td>520/300000</td>
+											<td>0.0167%</td>
+											<td>520</td>
+										</tr>
+										<tr>
+											<td>优惠券</td>
+											<td>-</td>
+											<td>-</td>
+											<td>-</td>
+											<td>-</td>
+										</tr>
+										<tr>
+											<td>总支出</td>
+											<td>-</td>
+											<td>-</td>
+											<td>-</td>
+											<td>4320</td>
+										</tr>
+									</table>
+								</div> -->
+								
+							</div>
+							<div class="rulelistItem">
+								<div class="ruleTitle2 tl ">注意事项</div>
+								<p class="ruleTxt">
+									1.您不得以舞弊方式或其他任何不正当手段参与本活动。一经发现，本平台有权采取限制登录、封禁账号、撤销活动资格、限制提现、账号金额清零、限制再次注册使用等措施，亦有权收回您已获得的奖金、追讨已提现的金额或与奖品同等价值的金额，并保留追究您的责任的权利。如因此给您造成损失，本平台不进行任何赔偿或补偿。舞弊行为及不正当手段包括但不限于：下载非官方客户端；使用模拟器、插件、外挂等非法工具扫码、下载、安装、注册、登录、赠与、领取金币或红包、提现；在同一设备注册多个账号；篡改设备数据；恶意牟利等扰乱平台秩序；使用插件、外挂、系统或第三方工具对本平台及本活动进行干扰、破坏、修改或施加其他影响及本平台认为的其他不正当手段。
+								</p>
+								<p class="ruleTxt">
+									2.本平台依法运营此次活动，如果出现非本平台可控或不可归责于本平台的情况，包括但不限于不可抗力、情势变更（包括自然灾害，活动受政府机关指令需要停止举办或调整的，活动遭受网络攻击）、系统故障等，本平台不对上述情况承担责任。
+								</p>
+								<p class="ruleTxt">
+									3.除法律法规另有明确规定外，如因第三方通过各种不当手段攻击、篡改，对本平台及本次活动进行干扰、破坏、修改或施加其他影响或系统故障致使获得的现金、提现等发生错误、使您无法参与本次活动或参与本次活动失败的，本平台不对上述情况承担责任。
+								</p>
+								<p class="ruleTxt">
+									4.活动期间，因您操作不当或您所在地区网络故障、支付平台网络故障、电信运营商故障、第三方其他平台限制等非本平台所能控制的原因导致的您无法参与本次活动或参与本次活动失败的，本平台不对上述情况承担责任。
+								</p>
+								<p class="ruleTxt">
+									5.请您务必通过负一屏中的官方页面参与本次活动。如您遇到任何人或第三方以平台的名义宣称或从事类似活动或发放、转让或销售金币、恶意通知您中奖、领取金币或现金、欺诈等情况，请您提高警惕并告知本平台相应情况；如您因上述情况受到损失，本平台不对此承担责任。
+								</p>
+								<p class="ruleTxt">
+									6.在法律允许的范围内，本平台有权基于平台运营需求及用户反馈，为本活动增设新的参与环节。新的参与环节可能需要您同时接受适用于该环节的规则，届时相应规则将公布在活动页面上，并与公布时即时生效，您选择参与该环节则视为同意相应规则。如果您拒绝同意适用于新的参与环节的规则，您应停止本活动新设的参与环节。
+								</p>
+								<p class="ruleTxt">
+									7.任何人不应利用本次活动进行任何违法行为。如您存在上述行为，一经发现，本平台有权取消您参与本次活动的资格、收回所获的相关奖励。如您的行为给本平台造成损失，您同时应承担相应的赔偿责任。
+								</p>
+								<p class="ruleTxt">
+									8.本平台的《搜啰用户服务协议、《搜啰隐私政策》同样适用于本次活动，本次活动规则及相关条款与《搜啰用户服务协议》、《搜啰隐私政策》相冲突的，以本次活动规则及相关条款为准。本次活动规则及相关条款未约定的内容，仍以《搜啰用户服务协议》、《搜啰隐私政策》为准。
+								</p>
+								<p class="ruleTxt">
+									9.本活动组织、规则设置等由上海卓易科技股份有限公司组织并实际开展。我国部分地区和某些境外国家和地区的法律法规对举办和参与涉及以抽签、摇号等带有偶然性的方法决定消费者可能获得奖励的营销活动（例如抽奖、抢红包、抢特定优惠秒杀商品等）有限制性规定，故此类营销活动只开放予港澳台和该等国家、地区以外的用户参与。卓易科技提醒居住于中国香港、澳门、台湾等地区，和其他受限制国家或者地区的用户（包括但不限于新加坡、马来西亚等地用户）请勿参与此类营销活动。
+								</p>
+							</div>
+
+						</div>
+
+						<!-- <iframe style="width:290;margin:0 auto;height:1000px" src="https://apmarket.tt286.com/luckdraw/protocol/draw_rule_20211228200253.html" frameborder="0"></iframe> -->
+					</div>
+					<div class="jianbian"></div>
+					<img class="close" src="./src/images/close.png" alt="">
+				</div>
+
+				<div class="getCountToast  tc boxzB disNone">
+					<p class="countTxt">您还有<span class="contTxt2">3</span>次抽奖机会未领取哦～</p>
+					<div class="goGetBtn tc">立即领取</div>
+				</div>
+
+				<div class="toastMask"></div>
+			</div>
+
+			<div class="toastMsg tc fixedAuto boxzB disNone"></div>
+
+
+			<audio id="daletou" class="disNone" src="http://www.littleducks.cn/uploads/ergemp3/dafengche.mp3"
+				controls="controls"></audio>
+		</div>
+		<div id="loading" class="loading ">
+			<img class="loadingImg fixedAuto" src="./src/images/loading.png" alt="">
+			<div class="toastMask"></div>
+		</div>
+
+
+
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+
+    .ruleTitle {
+        line-height: 20px;
+        font-size: 20px;
+        font-family: SourceHanSansCN-Bold, SourceHanSansCN;
+        font-weight: bold;
+        color: #FFFFFF;
+        margin-bottom: 40px;
+    }
+
+    .ruleTxtList {
+        overflow: auto;
+        word-wrap: break-word;
+
+        .rulelistItem {
+            margin:0 17px;
+            margin-bottom: 13px;
+
+        }
+        .ruleItemTable{
+            margin:0 11px;
+            margin-bottom: 13px;
+
+        }
+
+        .ruleTitle2 {
+            line-height: 21px;
+            font-size: 15px;
+            font-family: PingFangSC-Regular, PingFang SC;
+            font-weight: 400;
+            color: #000000;
+            position: relative;
+            margin-bottom: 8px;
+
+            &:after {
+                content: "";
+                display: inline-block;
+                width: 68px;
+                height: 5px;
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                // background: url(./../images/rulesBotter.png);
+                background: linear-gradient(105deg, #E6C19C 0%, rgba(198, 156, 115, 0) 100%);
+            }
+        }
+
+        .ruleTxt {
+            font-size: 11px;
+            font-family: PingFangSC-Regular, PingFang SC;
+            font-weight: 400;
+            color: #000000;
+            margin-bottom: 13px;
+        }
+
+        .prizeProbability {
+            width: 271x;
+            height: 225px;
+            background: url(./../images/prizeProbability.png);
+            background-size: 100% 100%;
+        }
+        .tableBox{
+            width: 290px;
+            height: 225px;
+            border: 1px solid #ebeef5;
+            border-right: none;
+            border-bottom: none;
+            box-sizing: border-box;
+        }
+        .ruleTable {
+            width: 290px;
+            height: 225px;
+            font-size: 10px;
+            td{
+                border-right: 1px solid #ebeef5;
+                border-bottom: 1px solid #ebeef5;
+                text-align: center;
+            }
+        }
+    }
+

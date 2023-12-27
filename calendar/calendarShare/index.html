@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>最美万年历</title>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+    content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimun-scale=1.0,user-scalable=no">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="format-detection" content="telephone=no">
+  <script src="./js/CallApp.js"></script>
+  <script src="./js/jquery-3.5.1.min.js"></script>
+  <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+  <div class="tank">
+    <img src="imgs/tips.png">
+  </div>
+  <div class="content">
+    <div class="content_title">
+      <img class="logo" src="./imgs/logo.png" alt="">
+      <div class="title">最美万年历</div>
+      <div class="subtitle">最美文化的传承者</div>
+      <div class="btn" onclick="down()">立即下载</div>
+    </div>
+    <img class="content_bg" src="./imgs/content.png" alt="">
+    <div class="devInfo">
+      <div class="devName"></div>
+      <div class="modTime"><span class="modTime_txt"></span><a
+          href="https://zmcalender.colaapp.cn/xcx_detail/policy/policy.html">点击查看</a></div>
+    </div>
+    <div class="down">
+
+      <div class="down_logo">
+        <img src="./imgs/logo.png" alt="">
+        <div>
+          <h1>最美万年历</h1>
+          <div class="sub">最美文化的传承者</div>
+        </div>
+      </div>
+      <div class="down_btn" onclick="down()">立即下载</div>
+    </div>
+  </div>
+  <script type="text/javascript">
+
+    ((doc) => {
+      const ua = navigator.userAgent.toLowerCase();
+      const isWeChatDevTools = ua && ua.match(/MicroMessenger/i) == "micromessenger";
+      const isAndroid = ua && (ua.indexOf('Android') > -1 || ua.indexOf('Adr') > -1 || ua.indexOf('android') > 0) //安卓
+      const isIOS = ua && /(iPhone|iPad|iPod|iOS)/i.test(ua); //ios终端
+      const YingYongBao = "https://a.app.qq.com/o/simple.jsp?pkgname=com.zhuoyi.zmcalendar&android_schema="
+      const fixedAndroidUrl = "market://details?id=com.zhuoyi.zmcalendar";
+      const fixedIosUrl = "https://itunes.apple.com/cn/app/id1527736495";
+      const openLocalTion = GetQueryString("param");//获取param参数
+
+      const main = () => {
+        bindEvent();
+      }
+
+      //绑定事件
+      function bindEvent() {
+        window.down = down;
+        openApp();
+        getAjax();
+      }
+
+      //跳转APP 未跳转 前往下载页
+      function openApp() {
+        const option = {
+          scheme: {
+            protocol: openLocalTion ? window.atob(openLocalTion) : "",
+          },
+          appstore: fixedIosUrl,
+          yingyongbao: '',
+          fallback: '/index.html',
+          timeout: 50000000
+        };
+
+        if (isWeChatDevTools) {
+          return;
+        }
+
+        if (!openLocalTion) return
+        const lib = new CallApp(option);
+        //lib.open({ path: '' });
+        window.location.href = window.atob(openLocalTion);
+      }
+      function down() {
+        if (isWeChatDevTools) {
+          $(".tank").show();
+          return;
+        }
+        newOpen();
+      }
+
+      //点击下载按钮
+      function newOpen() {
+        if (isWeChatDevTools) {
+          return;
+        }
+        if (isIOS) {
+          return window.location.href = fixedIosUrl;
+        } else {
+          return window.location.href = fixedAndroidUrl;
+        }
+      }
+
+      //获取协议版本号
+      function getAjax() {
+        $.ajax({
+          method: 'get',
+          url: 'https://zmcalender-api.colaapp.cn/apk/version/info',
+          data: {
+            osType: isIOS ? 3 : 2
+          },
+          success(res) {
+            if(res.data.version){
+              $('.devInfo').css('display','block')
+            }
+            $('.devName').text(`开发者：上海卓悠网络科技有限公司 | 版本 ${res.data && (res.data.version || '')}`)
+            $('.modTime_txt').text(`更新时间：${res.data && (res.data.upTm || '')} 权限与隐私政策信息：`)
+          }
+        })
+      }
+
+      //获取地址参数
+      function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]); return null;
+      }
+
+      main();
+    })(document)
+  </script>
+
+</body>
+
+</html>

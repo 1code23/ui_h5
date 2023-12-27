@@ -1,0 +1,119 @@
+html,body{
+	margin: 0;
+}
+a{
+	text-decoration:none;
+}
+
+.tank{
+	position: fixed;
+	width:100%;
+	height:100%;
+	/*background: rgb(0, 0, 0);*/
+	opacity: 1;
+	display: none;
+    z-index: 999;
+}
+.tank img{
+	position: absolute;
+	right:10px;
+	top:10px;
+    width:160px;
+}
+.content{
+	padding: 0 4.348vw;
+	background: url("../images/bg.png") no-repeat;
+	background-size: 100% 100%;
+}
+.content_title{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+.content_title .logo{
+	margin-top: 14.01vw;
+	width: 18.599vw;
+	border-radius: 3.382vw;
+}
+.content_title .title{
+	font-size: 4.831vw;
+	color: #111;
+	margin-top: 2.415vw;
+	letter-spacing: 0.242vw;
+	font-family: FZQKBYSJW--GB1-0, FZQKBYSJW--GB1;
+}
+.content_title .subtitle{
+	color: #DC8D74;
+	font-size: 2.899vw;
+	letter-spacing: 0.242vw;
+}
+.content_title .btn{
+	width: 50.483vw;
+	height: 13.285vw;
+	background: #FFFFFF;
+	border-radius: 6.763vw;
+	text-align: center;
+	line-height: 13.285vw;
+	color: #DF7656;
+	font-size: 4.348vw;
+	margin: 4.348vw 0 7.729vw 0;
+}
+.content .content_bg{
+	width: 100%;
+}
+.devInfo{
+	text-align: center;
+	color: rgb(167, 167, 167);
+	font-size: 2.933vw;
+	padding-top: 4vw;
+	display: none;
+}
+.devName{
+	margin-bottom: 1.067vw;
+}
+.devInfo a{
+	color: rgb(167, 167, 167);
+	text-decoration: underline;
+}
+.content .down{
+	height: 20vw;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.content .down .down_logo{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.content .down .down_logo>div{
+	display: inline-block;
+}
+.content .down .down_logo>div h1{
+	color: #111111;
+	font-size: 4.348vw;
+	letter-spacing: 0.242vw;
+	margin: 0;
+}
+.content .down .down_logo>div .sub{
+	color: #646A7D;
+	letter-spacing: 0.242vw;
+	font-size: 2.415vw;
+}
+.content .down .down_logo img{
+	width: 13.285vw;
+	border-radius: 3.382vw;
+	vertical-align: middle;
+	margin-right: 2.415vw;
+}
+.down_btn{
+	background: #111111;
+	color: #fff;
+	font-size: 3.14vw;
+	text-align: center;
+	line-height: 8.937vw;
+	width: 26.57vw;
+	height: 8.937vw;
+	border-radius: 4.589vw;
+}

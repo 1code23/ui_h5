@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Droi Digital Universe</title>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+  <div class="page contactUsPage">
+    <div id="header"></div>
+    <div class="container">
+      <div>
+        <div class="part1">
+          <div class="part1Content">
+            <div class="partIntr">
+              <div class="partTitle lang" langKey="contactUsPart1Title">CONTACT US</div>
+              <div class="partDesc lang" langKey="contactUsPart1Desc">General Inquiries & Business Cooperation</div>
+              <div class="email">ddu@droidigitaluniverse.com</div>
+            </div>
+            <!-- <a href="js/Bidding Announcement.pdf" target="_blank" class="biddingBtn"><img class="wx-ic" src="./imgs/ic_pdf.png"
+              alt=""><span class="lang" langKey="contactUsBidding">Bidding Announcement</span><img
+              class="wx-ic" src="./imgs/ic_download.png" alt=""></a> -->
+            <div class="fromArea">
+              <div class="fromTitle lang" langKey="contactUsPart1From">Business Cooperation</div>
+              <div class="row">
+                <div class="formItem column2">
+                  <div class="formLabel lang" langKey="contactUsPart1FormFirstName">First Name*</div>
+                  <input class="formContent" type="text" name="first_name" required>
+                </div>
+                <div class="formItem column2">
+                  <div class="formLabel lang" langKey="contactUsPart1FormLastName">Last Name*</div>
+                  <input class="formContent" type="text" name="last_name" required>
+                </div>
+              </div>
+              <div class="formItem">
+                <div class="formLabel lang" langKey="contactUsPart1FormEmail">Email*</div>
+                <input class="formContent" type="text" name="email" required>
+              </div>
+              <div class="row">
+                <div class="formItem column2">
+                  <div class="formLabel lang" langKey="contactUsPart1FormCompany">Company*</div>
+                  <input class="formContent" type="text" name="company" required>
+                </div>
+                <div class="formItem column2">
+                  <div class="formLabel lang" langKey="contactUsPart1FormTitle">Title</div>
+                  <input class="formContent" type="text" name="title">
+                </div>
+              </div>
+              <div class="formItem">
+                <div class="formLabel lang" langKey="contactUsPart1FormMessage">Your Message*</div>
+                <textarea class="formContent" rows="6" name="message" required></textarea>
+              </div>
+              <div class="row enterCodeArea">
+                <div class="formItem column2">
+                  <div class="formLabel lang" langKey="contactUsPart1FormEnterCod">Enter Code*</div>
+                  <input class="formContent" type="text" name="captcha" required>
+                </div>
+                <div class="formItem column2 enterCode">
+                  <img id="codeImg" onclick="createCaptcha()" src="">
+                </div>
+              </div>
+            </div>
+            <div class="formMsgError">
+              <span id="frontMsg" class="hidden lang" langKey="contactUsMsgError">
+                Please fill in all required fields
+              </span>
+              <span id="backMsg" class="hidden"></span>
+            </div>
+            <div class="submitBtn lang" langKey="contactUsSubmitBtn" onclick="handleSubmitBtn()">Send this Message</div>
+            <div class="privacyArea">
+              <span class="lang" langKey="contactUsPrivacyDesc">
+                Your personal data is only used to answer your request. Learn more about
+              </span>
+              <a href="./privacy.html" class="lang" langKey="contactUsPrivacyLink">managing your data and your
+                rights.</a>
+            </div>
+          </div>
+        </div>
+        <div id="footer"></div>
+      </div>
+    </div>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="./js/http.js"></script>
+    <script type="text/javascript">
+
+      var captcha_key
+      $(document).ready(function () {
+        $("#header").load("header.html")
+        $("#footer").load("footer.html")
+        createCaptcha()
+      })
+      // 提交按钮
+      function handleSubmitBtn() {
+        var data = {}
+        $("#frontMsg").addClass("hidden")
+        var vailRequired = true
+        $(".formContent").each(function (index, el) {
+          // 将表单数据处理成可用的对象
+          var key = $(this).attr("name")
+          var value = $(this).val()
+          var required = $(this).attr("required")
+          if (required && !value) {
+            var formLabel = $(this).prev(".formLabel")
+            vailRequired = false
+            return
+          }
+          data[key] = value
+        })
+        if (vailRequired) {
+          data.lang = localStorage.getItem("uiLang")
+          data.captcha_key = captcha_key
+          contactUs(data)
+        } else {
+          $("#frontMsg").removeClass("hidden")
+        }
+      }
+
+      var loading = false
+      function contactUs(data) {
+        if (loading) return
+        loading = true
+        httpCrypto({
+          type: "post",
+          url: "/api/index/contactUs",
+          data,
+          success: function (res) {
+            if (res.code == 1) {
+              $("#backMsg").addClass("hidden")
+              $(".formContent").val("")
+              createCaptcha()
+              showMsg(res.msg, "success")
+            } else {
+              $("#backMsg").text(res.msg)
+              $("#backMsg").removeClass("hidden")
+            }
+            loading = false
+          },
+          error: function (xhr, status, error) {
+            console.log('error', error);
+            loading = false
+          }
+        })
+      }
+
+      function createCaptcha() {// 获取验证码图片
+        http({
+          url: "/api/index/createCaptcha",
+          success: function (res) {
+            if (res.code == 1) {
+              $("#codeImg").attr("src", res.data.content)
+              captcha_key = res.data.captcha_key
+            }
+          }
+        })
+      }
+      function showMsg(msg, type) {
+        var msgEl = $("<div class='msgInfo'></div>")
+        msgEl.html(msg)
+        if (type == "success") {
+          msgEl.addClass("msgSuccess")
+        } else if (type == "error") {
+          msgEl.addClass("msgError")
+        }
+        $("body").append(msgEl)
+
+        var timer = setTIme()
+        function setTIme() {
+          return setTimeout(function () {
+            msgEl.addClass("msgInfoDel")
+            setTimeout(function () {
+              msgEl.remove()
+            }, 500);
+          }, 3000)
+        }
+        msgEl.hover(
+          function () { clearTimeout(timer) },
+          function () { timer = setTIme() },
+        )
+      }
+    </script>
+</body>
+
+</html>

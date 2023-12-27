@@ -1,0 +1,39 @@
+.cimg {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+body {
+  background-image: url(images/bg.png);
+  background-size: cover;
+}
+.carousel {
+  height: 58rem;
+}
+.carousel-inner,.carousel-item {
+  height: 100%;
+}
+.carousel-indicators [data-bs-target] {
+  background: rgba(0, 0, 0, 0.4);
+  border-bottom-width: 0;
+  border-top-width: 0;
+}
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+  width: 3rem;
+  height: 3rem;
+  background-image: none;
+}
+
+@media (max-width: 1000px) {
+  .cimg {
+    object-fit: contain;
+  }
+}
+a{
+  text-decoration: none;
+}
+.tcolor{
+  font-size: 14px;
+  color: #999;
+}

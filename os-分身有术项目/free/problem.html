@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>分身有术</title>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimun-scale=1.0,user-scalable=no">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black"> 
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="stylesheet" type="text/css" href="css/common.css"/>
+  <style>
+    body{margin:0; position: relative; font-family: "微软雅黑"; background: #fff;}
+    .box{padding:0px 0; color:#454545; text-align: justify; font-size:14px;overflow:hidden;}
+    h2{text-align: left; color:#101010; font-size:18px;font-weight: 400;}
+    h3{font-size: 14px; color:#EA4526;}
+    .composition-herder {margin-top: 0px;box-sizing: border-box;padding-left: 20px;}
+    .line {padding-bottom: 8px;display: inline-block;}
+    .problems-wrap-line {
+    	position: absolute;
+    	width: 100%;
+    	border-bottom: 1px solid #F5F5F6;
+    }
+    .problems-list {
+    	padding: 15px 0;
+    	box-sizing: border-box;
+    	border-bottom: 1px solid #F5F5F6;
+    	color: #101010;
+    	display: flex;
+    	justify-content: space-between;
+    	align-items: center;
+    }
+    .problems-next {
+    	padding: 0 20px;
+    	position: relative;
+    	top: 2px;
+    	transition: 0.3s;
+    }
+    .problems-next-rate {
+    	transform: rotate(90deg);
+    	transition: 0.3s;
+    }
+    .problems-hidden {
+    	display: none;
+    }
+    .problems-info {
+    	padding-right: 20px;
+    	position: relative;
+    }
+    .line-weight {
+    	font-weight: 600;
+    }
+  </style>
+
+</head>
+<body>
+<div class="box">
+	<div class="composition-herder">
+		<div class="problems-wrap">
+			<div class="problems-list" onclick="problemShow({element:$(this)})">
+				<span>1.一台手机能开多少个分身？</span>
+				<span class="problems-next">
+					<img src="images/icon_arrow_next.png"/>
+				</span>
+			</div>
+			<div class="problems-info problems-hidden">
+				<p>
+					<span>理论上支持分身的应用可以无限添加分身，但添加一定数量后会影响手机性能，出现手机卡顿等情况，所以需要根据手机配置及多开需求合理添加分身。</span>
+				</p>
+				<div class="problems-wrap-line"></div>
+			</div>
+		</div>
+		<div class="problems-wrap">
+			<div class="problems-list" onclick="problemShow({element:$(this)})">
+				<span>2.分身是否会导致封号？</span>
+				<span class="problems-next">
+					<img src="images/icon_arrow_next.png"/>
+				</span>
+			</div>
+			<div class="problems-info problems-hidden">
+				<p>
+					正常使用，不进行违规操作一般不会被封号。不建议用户使用新注册的账号登录分身或者使用分身进行注册。为了降低封号风险，还请您不要使用分身进行各类违规操作。
+				</p>
+				<div class="problems-wrap-line"></div>
+			</div>
+		</div>
+		<div class="problems-wrap">
+			<div class="problems-list" onclick="problemShow({element:$(this)})">
+				<span>3.分身有术卸载后的影响？</span>
+				<span class="problems-next">
+					<img src="images/icon_arrow_next.png"/>
+				</span>
+			</div>
+			<div class="problems-info problems-hidden">
+				<p>
+					在已经添加分身的情况下卸载分身有术，所添加分身也会被卸载，分身相关应用将无法正常使用。
+				</p>
+				<div class="problems-wrap-line"></div>
+			</div>
+		</div>
+		
+		<div class="problems-wrap">
+			<div class="problems-list" onclick="problemShow({element:$(this)})">
+				<span>4.如何进入权限检查设置项？</span>
+				<span class="problems-next">
+					<img src="images/icon_arrow_next.png"/>
+				</span>
+			</div>
+			<div class="problems-info problems-hidden">
+				<p>
+					<span class="line">部分手机定制系统对App进行了严格限制，会影响一些正常App的使用，因此需要您检查相关权限设置，针对不同品牌机型可参考以下路径设置：</span></br>
+					<span class="line line-weight">通知权限</span></br>
+					<span class="line">路径1：设置->应用->应用管理->分身有术->通知管理->允许通知</span></br>
+					<span class="line">路径2：设置->更多应用->分身有术->通知管理->允许通知</span></br>
+					<span class="line">路径3：设置->应用程序->分身有术->通知->允许通知</span></br>
+					<span class="line line-weight">自启动管理</span></br>
+					<span class="line">路径1：设置->应用->应用启动管理->分身有术->关闭自动管理->手动打开所有3项启动管理</span></br>
+					<span class="line">路径2：设置->更多应用->分身有术->自启动->开启</span></br>
+					<span class="line">路径3：设置->应用管理->分身有术->应用权限->单项权限设置->自启动->开启</span></br>
+					<span class="line line-weight">耗电保护白名单</span></br>
+					<span class="line">路径1：设置->应用管理->分身有术->耗电保护->允许后台运行</span></br>
+					<span class="line">路径2：设置->电池->后台高耗电->分身有术</span></br>
+					<span class="line">路径3：设置->更多应用->分身有术->省电策略->无限制</span></br>
+					<span>路径4：设置->电池->自定义耗电保护->分身有术->允许后台运行</span>
+				</p>
+				<div class="problems-wrap-line"></div>
+			</div>
+		</div>
+		<div class="problems-wrap">
+			<div class="problems-list" onclick="problemShow({element:$(this)})">
+				<span>5.手机系统升级对分身有术及分身的影响？</span>
+				<span class="problems-next">
+					<img src="images/icon_arrow_next.png"/>
+				</span>
+			</div>
+			<div class="problems-info problems-hidden">
+				<p>
+					正常情况下，手机系统升级不会对分身有术及分身有影响，但不排除升级过程中手机系统出现异常导致应用数据丢失、损坏等极端情况。
+				</p>
+				<div class="problems-wrap-line"></div>
+			</div>
+		</div>
+		<div class="problems-wrap">
+			<div class="problems-list" onclick="problemShow({element:$(this)})">
+				<span>6.如何将分身添加到桌面？</span>
+				<span class="problems-next">
+					<img src="images/icon_arrow_next.png"/>
+				</span>
+			</div>
+			<div class="problems-info problems-hidden">
+				<p>
+					<span class="line">需开启创建桌面快捷方式权限</span></br>
+					<span class="line">方法：进入系统设置--应用--权限管理--分身有术--创建桌面快捷方式（滑到底能看到）-允许</span></br>
+					<span class="line">注：OPPO（Color OS 3.0）、VIVO（Funtouch 2.5以下版本）、一加和金立手机自带的桌面，不支持添加桌面。</span></br>
+				</p>
+				<div class="problems-wrap-line"></div>
+			</div>
+		</div>
+		<div class="problems-wrap">
+			<div class="problems-list" onclick="problemShow({element:$(this)})">
+				<span>7.OPPO手机分身启动失败的处理方案</span>
+				<span class="problems-next">
+					<img src="images/icon_arrow_next.png"/>
+				</span>
+			</div>
+			<div class="problems-info problems-hidden">
+				<p>
+					<span class="line">OPPO手机需要开启分身有术的自启动权限，开启方法如下：</span></br>
+					<span class="line">方法1：设置->应用管理->分身有术->允许自动启动->打开</span></br>
+					<span class="line">方法2：手机管家->权限隐私->自启动管理->分身有术->打开</span></br>
+				</p>
+				<div class="problems-wrap-line"></div>
+			</div>
+		</div>
+		<div class="problems-wrap">
+			<div class="problems-list" onclick="problemShow({element:$(this)})">
+				<span>8.VIVO NEX手机微信分身登录时无法获取验证码，如何处理？</span>
+				<span class="problems-next">
+					<img src="images/icon_arrow_next.png"/>
+				</span>
+			</div>
+			<div class="problems-info problems-hidden">
+				<p>
+					<span class="line">需要开启“后台弹出界面”权限，开启路径如下：</span></br>
+					<span class="line">手机系统设置->更多设置->权限管理->权限->后台弹出界面->分身有术->打开。</span>
+				</p>
+				<div class="problems-wrap-line"></div>
+			</div>
+		</div>
+		
+	</div>
+</div>
+<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+	// 点击展示tab信息
+	function problemShow(valObj) {
+		if (valObj.element.next().hasClass('problems-hidden')) {
+			valObj.element.find(".problems-next").addClass('problems-next-rate');
+			valObj.element.next().removeClass('problems-hidden');
+		} else {
+			valObj.element.find(".problems-next").removeClass('problems-next-rate');
+			valObj.element.next().addClass('problems-hidden');
+		};
+	};
+</script>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>分身有术</title>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimun-scale=1.0,user-scalable=no">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black"> 
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="shortcut icon" href="favicon.ico" />
+  <style>
+    body{margin:0; position: relative; font-family: "微软雅黑"; background: #fff;}
+    .box{padding:0px 0; color:#666; text-align: justify; font-size:14px;overflow:hidden;}
+    h2{
+    	text-align: center;
+	    color: #EA4526;
+	    font-size: 20px;
+    	margin-bottom: 0;
+    }
+    h3{font-size: 14px; color:#EA4526;}
+ 		.box {
+ 			padding: 0 20px 70px;
+ 		}
+ 		.box-btn {
+ 			position: fixed;
+ 			left: 0;
+ 			bottom: 0px;
+ 			width: 100%;
+ 			padding-bottom: 10px;
+ 			background-color: #fff;
+ 		}
+ 		.box-btn-wrap {
+ 			width: 84%;
+ 			height: 40px;
+ 			margin-left: 8%;
+ 			background-color: #F7F7F9;
+ 			border-radius: 20px;
+ 			color: #34DDA5;
+ 			font-size: 14px;
+ 			display: flex;
+ 			align-items: center;
+ 			justify-content: center;
+ 		}
+ 		.box-btn-wrap img {
+ 			width: 18px;
+ 			margin-right: 3px;
+ 		}
+ 		.box-hidden-wrap {
+ 			display: none;
+ 		}
+ 		.box-hidden-wrap .box-btn-wrap {
+ 			color: #8799AC;
+ 		}
+  </style>
+
+</head>
+<body>
+<div class="box">
+	
+
+</div>
+<div class="box-btn">
+	<div class="box-btn-wrap" onclick="userHandle({element:$(this)})">
+		<img src="images/icon_zan3.png"/>
+		<span>有用</span>
+	</div>
+</div>
+<div class="box-btn box-hidden-wrap">
+	<div class="box-btn-wrap">
+		<img src="images/icon_zan4.png"/>
+		<span>2500点赞</span>
+	</div>
+</div>
+<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+//	var url = "https://api-location.yy845.com", // 最新
+	 var url = "https://api-spare.oo523.com:8060", // 正式服
+//	 var url = "https://spare-api.freemeos.com"; // 正式服
+  // var url = "http://192.168.40.206:8060", // 测试服
+  id = getQueryString(location.href, "id");
+  console.log(id, "获取url参数");
+	init(url, id);
+	function init(url, id) {
+		$.ajax({
+			type: "get",
+			url: url + `/help/info?id=${id}`,
+			data: {},
+			contentType : "application/json",
+			success: function (res) {
+				if (res.status == 200) {
+					$(".box").html(res.data.content);
+					$(".box-btn-wrap").attr("data-id", res.data.id);
+					$(".box-btn-wrap").attr("data-num", res.data.support_count);
+				};
+				console.log(res,"问题详情");
+			},
+			error: function (error) {
+				console.log(error);
+			}
+		});
+	};
+	// 点赞函数
+	function userHandle(elemt) {
+		var id = elemt.element.attr("data-id"), num = elemt.element.attr("data-num");
+		$.ajax({
+			type: "put",
+			url: url + `/help/info`,
+			data: {id},
+			success: function (res) {
+				if (res.status == 200) {
+					// 点赞成功
+					num++;
+					$(".box-hidden-wrap").find("span").text(num+"点赞");
+					elemt.element.parent().hide();
+					$(".box-hidden-wrap").show();
+				}
+			},
+			error: function (error) {
+				console.log(error);
+			}
+		});
+		console.log(elemt.element, "点赞");
+	};
+	// 获取url参数
+	function getQueryString(str, key) {
+		if(str) {
+			var queryString = str.split('?')[1] || '';
+			var arr = queryString.split('&') || [];
+			for(var i = 0; i<arr.length; i++) {
+				var keyString = decodeURIComponent(arr[i].split('=')[0]);
+				var valueString = decodeURIComponent(arr[i].split('=')[1]);
+				if(key === keyString) {
+					return valueString;
+				}
+			}
+			return;
+		} else {
+			return;
+		}
+	};
+</script>
+</body>
+</html>

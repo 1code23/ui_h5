@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>热料小说</title>
+  <link type="favicon" rel="shortcut icon" href="./imgs/favicon.ico">
+  <link rel="stylesheet" href="./index.css">
+</head>
+
+<body ontouchstart>
+  <div class="box">
+    <div class="header cc" id="header">
+      <div class="left">
+        <div class="logo">
+          <img src="./imgs/logo.png" alt="">
+        </div>
+        <span class="ml10">热料小说</span>
+      </div>
+      <div class="right">
+        <!--<a href="" target="_blank">作家福利</a>-->
+        <a href="https://rlxszuojia.droi.com:1443/" target="_blank" class="ml10">作家后台</a>
+      </div>
+    </div>
+    <div class="contentWrapper">
+      <div class="banner">
+        <img src="./imgs/banner.png" alt="">
+      </div>
+      <div class="intr1 cc">
+        <div class="left">
+          <img src="./imgs/img1.png" alt="">
+        </div>
+        <div class="right">
+          <div class="title">拥书万卷</div>
+          <div class="desc">
+            <img class="icon" src="./imgs/icon1.png" alt="">
+            <p>男频、女频、经典文学……</p>
+            <p>天马行空的玄幻奇幻、惊险刺激的科幻网游、又甜又撩的古言现言……</p>
+            <p>覆盖全类别，你想读的，这里都有</p>
+          </div>
+          <div class="downloadBox">
+            <a class="btn">下载app</a>
+            <div id="qrBox">
+              <img src="./imgs/app.png" alt="">
+              <div>手机扫描下载热料小说</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="intr2">
+        <div class="cc">
+          <div class="left">
+            <div class="title">致力原创</div>
+            <div class="desc">
+              <img class="icon" src="./imgs/icon2.png" alt="">
+              <p>深入挖掘优质原创作品，坚持写作初心，坚持原创</p>
+              <p>为作者提供优厚的创作保障和服务</p>
+              <p>与作者共同开辟一片新的网文天地</p>
+            </div>
+            <a href="https://rlxszuojia.droi.com:1443/" target="_blank" class="btn">成为作家</a>
+          </div>
+          <div class="right">
+            <img src="./imgs/img2.png" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="intr3">
+        <div class="title">正版内容</div>
+        <div class="desc">
+          <p>深入挖掘优质原创作品，坚持写作初心，坚持原创</p>
+          <p><span class="underline">为作者提供优厚的创作保障和服务</span></p>
+          <p>与作者共同开辟一片新的网文天地</>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <span>上海卓悠网络科技有限公司版权所有</span>
+      <span class="ml10">出版物经营许可证：新出发沪批字第U9438号</span>
+      <span class="ml10">文网文：沪网文[2022]2357-156号</span>
+      <span class="ml10">沪ICP证：沪B2-20200639</span>
+      <span class="ml10">沪ICP备11020935号-9</span>
+      <span class="ml10">请使用者仔细阅读</span>
+      <a href="https://readingbackend.droigroup.com:8443/hotprivacy/android/agreement.html"
+        target="_blank">《热料小说用户协议》</a>
+      <a href="https://readingbackend.droigroup.com:8443/hotprivacy/android/privacy.html" target="_blank">《热料小说隐私政策》</a>
+      <span>说明</span>
+    </div>
+  </div>
+  <script>
+    let u = navigator.userAgent;
+    let isAndroid = u.indexOf("Android") > -1 || u.indexOf("Adr") > -1; //android终端
+    let isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+    if (isIOS) {
+      var header = document.querySelector(".header").style.paddingTop = "30px";
+    }
+  </script>
+</body>
+
+</html>

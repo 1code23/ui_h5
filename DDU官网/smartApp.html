@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Droi Digital Universe</title>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="./index.css">
+  <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+
+<body>
+  <div class="page smartAppPage">
+    <div id="header"></div>
+    <div class="container">
+      <div>
+        <div class="part1">
+          <div>
+            <div class="partIntr">
+              <div class="partTitle lang" langKey="smartPart1Title">FACE RECOGNITION WITH MASKS</div>
+              <div class="partDesc opacity5 lang" langKey="smartPart1Desc">Face recognition has been updated to a mask-on version. The algorithm has
+                been newly
+                upgraded to capture finer and richer facial features, achieve high-precision recognition of facial
+                areas, and quickly recognize when wearing a mask, efficiently meeting users' face recognition needs in
+                complex environments.
+              </div>
+            </div>
+            <div class="imgArea">
+              <img src="./imgs/smartApp_img01.png" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="part2">
+          <div>
+            <div class="imgArea">
+              <img src="./imgs/smartApp_img02.png" alt="">
+            </div>
+            <!-- style="top: 145px;" -->
+            <div class="partIntr">
+              <div class="partTitle lang" langKey="smartPart2Title">SMART GALLERY</div>
+              <div class="partDesc opacity5 lang" langKey="smartPart2Desc">Face clustering, intelligent classification. DDU uses AI image recognition
+                technology to set rich tags for albums, which can classify and combine information such as family
+                members, animals, plants, landscapes, places, etc., to make your photos more artistic.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="footer"></div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $("#header").load("header.html")
+      $("#footer").load("footer.html")
+    })
+  </script>
+</body>
+
+</html>

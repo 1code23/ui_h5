@@ -1,0 +1,946 @@
+html,
+body {
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+	background: black;
+	font-size: 16px;
+}
+
+@keyframes rotateLoad {
+	0% {
+		-webkit-transform: rotate(0deg);
+	}
+
+	25% {
+		-webkit-transform: rotate(90deg);
+	}
+
+	50% {
+		-webkit-transform: rotate(180deg);
+	}
+
+	75% {
+		-webkit-transform: rotate(270deg);
+	}
+
+	100% {
+		-webkit-transform: rotate(360deg);
+	}
+}
+
+@keyframes bigbig {
+	25% {
+		-webkit-transform: scale(0.85);
+	}
+
+	50% {
+		-webkit-transform: scale(0.9);
+	}
+
+	75% {
+		-webkit-transform: scale(0.95);
+	}
+
+	100% {
+		-webkit-transform: scale(1);
+	}
+}
+
+.box {
+	font-size: 16px;
+	width: 100%;
+	height: 925px;
+	box-sizing: border-box;
+	position: relative;
+	background: url(./../images/bg.png);
+	background-size: 100% 100%;
+	padding-top: 148px;
+
+	.Wrap {
+		width: 100%;
+		height: 100%;
+	}
+
+	.rulesEntry {
+		position: absolute;
+		top: 70px;
+		right: 0;
+		width: 61px;
+		line-height: 24px;
+		background: #EFD177;
+		border-radius: 52px 0px 0px 52px;
+		font-size: 13px;
+		font-family: SourceHanSansSC-Medium, SourceHanSansSC;
+		font-weight: 500;
+		color: #734925;
+
+	}
+
+	.feedback {
+		position: absolute;
+		right: 21px;
+		top: 39px;
+		line-height: 19px;
+		font-size: 17px;
+		font-family: PingFangSC-Medium, PingFang SC;
+		font-weight: 500;
+		color: #FFFFFF;
+	}
+
+	#pageBack {
+		width: 13px;
+		height: 22px;
+		position: absolute;
+		left: 15px;
+		top: 32px;
+	}
+
+	.toastMsg {
+		background: #061930;
+		border-radius: 21px;
+		opacity: 0.8;
+		width: 331px;
+		height: 42px;
+		line-height: 42px;
+		z-index: 4;
+		font-size: 17px;
+		font-family: SourceHanSansCN-Regular, SourceHanSansCN;
+		font-weight: 400;
+		color: #FFFFFF;
+
+	}
+
+	.toastMask {
+		position: fixed;
+		top: 0;
+		left: 0;
+		background: rgba(0, 0, 0, 0.7);
+		z-index: 3;
+		width: 100%;
+		height: 100%;
+	}
+
+	// 弹窗
+	.hotServe {
+		padding: 14px;
+		width: 306px;
+		height: 313px;
+		background: #FFFFFF;
+		border-radius: 10px;
+		z-index: 4;
+
+		.closeIcon {
+			padding-right: 3px;
+
+			.hotClose {
+				width: 15px;
+				height: 15px;
+				background: url(./../images/hotClose.png);
+				background-size: 100% 100%;
+			}
+
+			margin-bottom: 26px;
+		}
+
+
+		.hotTit {
+			font-size: 18px;
+			font-family: HarmonyOS_Sans_SC_Bold;
+			color: #2E271F;
+			line-height: 25px;
+			font-weight: 700;
+			margin-bottom: 23px;
+		}
+
+		.phoneNum {
+			font-size: 20px;
+			font-family: PingFangSC-Medium, PingFang SC;
+			font-weight: 500;
+			color: #061930;
+			line-height: 28px;
+			margin-bottom: 14px;
+		}
+
+		p {
+			font-size: 15px;
+			font-family: PingFangSC-Regular, PingFang SC;
+			font-weight: 400;
+			color: #8B8B91;
+		}
+
+		.hotBtn {
+			width: 243px;
+			line-height: 42px;
+			background: #2E271F;
+			border-radius: 23px;
+			margin: 0 auto;
+			font-size: 16px;
+			font-family: SourceHanSansCN-Medium, SourceHanSansCN;
+			font-weight: 500;
+			color: #EFD177;
+			margin-top: 31px;
+		}
+	}
+
+	.toast {
+		position: fixed;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		margin: auto;
+		width: 295px;
+		height: 404px;
+		background: url(./../images/prizeMoneyBg.png);
+		background-size: 100% 100%;
+		z-index: 4;
+		padding-top: 80px;
+		box-sizing: border-box;
+
+		.priceNum {
+			line-height: 1;
+			font-size: 63px;
+			font-family: SourceHanSansSC-Medium, SourceHanSansSC;
+			font-weight: 500;
+			color: #734925;
+			margin-bottom: 20px;
+
+			.moneysign {
+				font-size: 25px;
+			}
+		}
+
+		.toastInfo {
+			line-height: 15px;
+			font-size: 15px;
+			font-family: SourceHanSansSC-Regular, SourceHanSansSC;
+			font-weight: 400;
+			color: #734925;
+			line-height: 22px;
+			margin-bottom: 51px;
+		}
+
+		.prizeNews {
+			height: 83px;
+			padding: 0 27px;
+			font-size: 11px;
+			font-family: SourceHanSansSC-Regular, SourceHanSansSC;
+			font-weight: 400;
+			color: #ECCE96;
+			line-height: 17px;
+			text-align: left;
+		}
+
+		.getNum {
+			width: 250px;
+			line-height: 44px;
+			background: #F8E098;
+			border-radius: 25px;
+			margin: 0 auto;
+			font-size: 16px;
+			font-family: SourceHanSansCN-Medium, SourceHanSansCN;
+			font-weight: 700;
+			color: #734925;
+			margin-bottom: 16px;
+		}
+
+		.notes {
+			padding: 0 27px;
+			line-height: 11px;
+			font-size: 11px;
+			font-family: SourceHanSansCN-Medium, SourceHanSansCN;
+			font-weight: 500;
+			color: #907D59;
+			margin-bottom: 30px;
+		}
+
+		.closeMoney {
+			width: 35px;
+			height: 35px;
+		}
+
+	}
+
+	.toastLottery {
+		height: 417px;
+		position: fixed;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		margin: auto;
+		z-index: 4;
+		background: url(./../images/lotteryCard.png);
+		background-size: 100% 100%;
+		box-sizing: border-box;
+		padding-top: 136px;
+
+		.goodTxt {
+			font-size: 16px;
+			font-family: SourceHanSansSC-Normal, SourceHanSansSC;
+			font-weight: 400;
+			color: #734925;
+			margin-bottom: 15px;
+		}
+
+		.lotteryBg {
+			width: 264px;
+			height: 100px;
+			background: url(./../images/lotteryBg.png);
+			background-size: 100% 100%;
+			margin: 0 auto;
+			box-sizing: border-box;
+			padding-left: 8px;
+			margin-bottom: 10px;
+
+			.lotteryNum {
+				width: 98px;
+				line-height: 100px;
+				font-size: 36px;
+				font-family: HarmonyOS_Sans_SC_Medium;
+				color: #734925;
+
+				.num2 {
+					font-size: 14px;
+					font-family: HarmonyOS_Sans_SC_Light;
+					color: #5C3D1A;
+				}
+			}
+
+			.lottery {
+				padding-top: 24px;
+				padding-left: 10px;
+				padding-right: 10px;
+
+				.lotteryLogo {
+					width: 19px;
+					height: 19px;
+					margin-right: 7px;
+				}
+
+				.lotteryName {
+					width: 98px;
+					font-size: 16px;
+					font-family: HarmonyOS_Sans_SC_Medium;
+					color: #734925;
+				}
+
+				.lotteryTime {
+					font-size: 10px;
+					font-family: SourceHanSansSC-Regular, SourceHanSansSC;
+					font-weight: 400;
+					color: #74531F;
+					margin-top: 8px;
+
+				}
+			}
+		}
+
+		.lotteryInfo {
+			font-size: 14px;
+			font-family: SourceHanSansCN-Regular, SourceHanSansCN;
+			font-weight: 400;
+			color: #714823;
+			margin-bottom: 27px;
+		}
+
+		.lotteryBtns {
+			padding: 0 64px;
+
+			.lotteryBtn {
+				width: 115px;
+				line-height: 35px;
+				border-radius: 18px;
+				opacity: 0.8;
+			}
+
+			.cancel {
+				border: 1px solid #734925;
+				font-size: 16px;
+				font-family: SourceHanSansCN-Medium, SourceHanSansCN;
+				font-weight: 500;
+				color: #734925;
+			}
+
+			.confim {
+				background: #2E271F;
+				font-size: 16px;
+				font-family: SourceHanSansCN-Medium, SourceHanSansCN;
+				font-weight: 500;
+				color: #EFD177;
+			}
+		}
+	}
+
+	.ruleToast {
+		width: 313px;
+		height: 502px;
+		position: fixed;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		margin: auto;
+		z-index: 4;
+
+		.ruleContent {
+			width: 313px;
+			height: 440px;
+			background: url(./../images/rulesBg.png);
+			background-size: 100% 100%;
+			margin-bottom: 26px;
+			padding: 37px 0 0;
+
+			.ruleTitle {
+				line-height: 20px;
+				font-size: 20px;
+				font-family: SourceHanSansCN-Bold, SourceHanSansCN;
+				font-weight: bold;
+				color: #FFFFFF;
+				margin-bottom: 40px;
+			}
+
+			.ruleTxtList {
+				overflow: auto;
+				word-wrap: break-word;
+
+				.rulelistItem {
+					margin:0 17px;
+					margin-bottom: 13px;
+
+				}
+				.ruleItemTable{
+					margin:0 11px;
+					margin-bottom: 13px;
+
+				}
+
+				.ruleTitle2 {
+					line-height: 21px;
+					font-size: 15px;
+					font-family: PingFangSC-Regular, PingFang SC;
+					font-weight: 400;
+					color: #000000;
+					position: relative;
+					margin-bottom: 8px;
+
+					&:after {
+						content: "";
+						display: inline-block;
+						width: 68px;
+						height: 5px;
+						position: absolute;
+						left: 0;
+						bottom: 0;
+						// background: url(./../images/rulesBotter.png);
+						background: linear-gradient(105deg, #E6C19C 0%, rgba(198, 156, 115, 0) 100%);
+					}
+				}
+
+				.ruleTxt {
+					font-size: 11px;
+					font-family: PingFangSC-Regular, PingFang SC;
+					font-weight: 400;
+					color: #000000;
+					margin-bottom: 13px;
+				}
+
+				.prizeProbability {
+					width: 271x;
+					height: 225px;
+					background: url(./../images/prizeProbability.png);
+					background-size: 100% 100%;
+				}
+				.tableBox{
+					width: 290px;
+					height: 225px;
+					border: 1px solid #ebeef5;
+					border-right: none;
+    				border-bottom: none;
+					box-sizing: border-box;
+				}
+				.ruleTable {
+					width: 290px;
+					height: 225px;
+					font-size: 10px;
+					td{
+						border-right: 1px solid #ebeef5;
+						border-bottom: 1px solid #ebeef5;
+						text-align: center;
+					}
+				}
+			}
+
+
+		}
+
+		.jianbian {
+			position: absolute;
+			bottom: 61px;
+			left: 0;
+			width: 100%;
+			height: 90px;
+			background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%);
+			border-radius: 0px 0px 10px 10px;
+		}
+
+		.close {
+			width: 35px;
+			height: 35px;
+		}
+	}
+
+	.getCountToast {
+		width: 328px;
+		height: 171px;
+		padding-top: 46px;
+		background: #FFFFFF;
+		border-radius: 12px;
+		z-index: 4;
+		position: fixed;
+		bottom: 73px;
+		left: 23px;
+
+		.countTxt {
+			margin-bottom: 45px;
+		}
+
+		.goGetBtn {
+			width: 243px;
+			line-height: 42px;
+			background: #2E271F;
+			border-radius: 23px;
+			font-size: 16px;
+			font-family: SourceHanSansCN-Medium, SourceHanSansCN;
+			font-weight: 500;
+			color: #EFD177;
+			margin: 0 auto;
+		}
+	}
+
+
+
+	.loading {
+		.loadingImg {
+			width: 13.33vw;
+			height: 13.33vw;
+			z-index: 4;
+			animation: rotateLoad 1s linear infinite;
+		}
+
+	}
+
+	.lotteryNumWrap {
+		height: 24px;
+		margin-bottom: 7px;
+
+		.lotteryNum {
+			width: 128px;
+			height: 24px;
+			display: inline-block;
+			background: url(./../images/lotteryNum.png) no-repeat top;
+			background-size: 100% 100%;
+			font-size: 14px;
+			font-family: SourceHanSansSC-Medium, SourceHanSansSC;
+			font-weight: 500;
+			color: #734925;
+			line-height: 24px;
+
+			.lotteryNumTxt {
+				font-size: 16px;
+				color: #FF7316;
+				font-weight: 700;
+			}
+		}
+	}
+
+	.turntableRect {
+		height: 373px;
+		margin-bottom: 12px;
+		position: relative;
+		overflow: hidden;
+
+		.selectPrize {
+			width: 114px;
+			height: 150px;
+			position: absolute;
+			margin: 0 auto;
+			top: 14px;
+			left: 50%;
+			margin-left: -58px;
+			transform: rotate(1deg);
+			z-index: 3;
+		}
+
+		.turntableBox {
+			box-sizing: border-box;
+			width: 325px;
+			height: 325px;
+			border-radius: 325px;
+			margin: 0 auto;
+			background: url(./../images/turntable.png);
+			// background: white;
+			background-size: 100% 100%;
+			z-index: 2;
+			position: absolute;
+			left: 26px;
+			top: 0;
+
+
+			.prizeItem {
+				position: absolute;
+				box-sizing: border-box;
+				width: 100px;
+				padding-top: 18px;
+				height: 162.5px;
+				top: 0;
+				left: 50%;
+				margin-left: -50px;
+				transform-origin: 50% 100%;
+				// border: 1px solid black;
+
+				.prizeName {
+					font-size: 16px;
+					font-family: SourceHanSansCN-Medium, SourceHanSansCN;
+					font-weight: 500;
+					color: #F5DE90;
+					margin-bottom: 7px;
+				}
+
+				.prizeNum {
+					width: 53px;
+					height: 34px;
+					line-height: 34px;
+					background: url(./../images/prizeBg.png);
+					background-size: 100% 100%;
+					font-weight: 600;
+
+					.moneysign {
+						font-weight: 400;
+						font-size: 8px;
+					}
+				}
+			}
+		}
+
+		.pointer {
+			width: 112px;
+			height: 124px;
+			position: absolute;
+			left: 133px;
+			top: 96px;
+			// background: url(./../images/pointer.png);
+			background-size: 100% 100%;
+			-webkit-tap-highlight-color: transparent;
+			z-index: 3;
+		}
+
+		.pointerAni {
+			animation: bigbig 0.8s linear infinite;
+			animation-direction: reverse;
+		}
+
+		.rotatefire {
+			width: 120px;
+			height: 120px;
+			background: url(./../images/fire.png);
+			background-size: 100% 100%;
+			-webkit-tap-highlight-color: transparent;
+			position: absolute;
+			left: 130px;
+			top: 105px;
+			z-index: 3;
+		}
+
+		.hightcircle {
+			width: 100%;
+			height: 404px;
+			background: url(./../images/hightcircle.png);
+			background-size: 100% 100%;
+			z-index: 3;
+			position: absolute;
+			left: 0px;
+			top: -45px;
+		}
+
+		.turntableBase {
+			display: block;
+			width: 100%;
+			margin: 0 auto;
+			margin-top: -80px;
+			position: absolute;
+			left: 0px;
+			bottom: -5px;
+		}
+
+		.popRect {
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			height: 66px;
+			padding-left: 13px;
+			width: 100%;
+			overflow: hidden;
+			box-sizing: border-box;
+
+			.popItem {
+				position: absolute;
+				top: 80px;
+				padding: 7px 16px;
+				font-size: 14px;
+				background: #4E3315;
+				border-radius: 14px;
+				font-family: SourceHanSansCN-Regular, SourceHanSansCN;
+				font-weight: 400;
+				color: #F5DE90;
+				opacity: 0.8;
+				z-index: 3;
+				max-width: 250px;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				// transition:transform 1500ms ease-in-out;
+				// transform: translate(0px, -70px);
+			}
+		}
+	}
+
+	.panel {
+		box-sizing: border-box;
+		padding: 19px 17px 16px 17px;
+		background: #2E271F;
+		border-radius: 10px;
+		border: 1px solid #E0AD60;
+		margin: 0 13px;
+	}
+
+	// 广告领取机会
+	.receiveNumBox {
+		height: 98px;
+		margin-bottom: 13px;
+
+		.needinfo {
+			width: 198px;
+
+			.txt1 {
+				width: 173px;
+				height: 15px;
+				background: url(./../images/lookAd.png);
+				background-size: 100% 100%;
+				margin-bottom: 5px;
+			}
+
+			.txt2 {
+				width: 189px;
+				height: 21px;
+				font-size: 13px;
+				font-family: SourceHanSansSC-Normal, SourceHanSansSC;
+				font-weight: 400;
+				color: #CEBA7A;
+				line-height: 21px;
+			}
+
+			.txt3 {
+				width: 100%;
+				height: 21px;
+				font-size: 13px;
+				font-family: SourceHanSansSC-Normal, SourceHanSansSC;
+				font-weight: 400;
+				color: #CEBA7A;
+				line-height: 21px;
+			}
+
+			.txtNum {
+				font-size: 17px;
+				color: #E8A03F
+			}
+
+			.txtCount {
+				font-size: 13px;
+				color: #E8A03F
+			}
+		}
+
+		.receiveBox {
+			width: 118px;
+
+			.overTime {
+				margin-bottom: 13px;
+
+				.overTxt {
+					font-size: 9px;
+					font-family: SourceHanSansSC-Medium, SourceHanSansSC;
+					font-weight: 500;
+					color: #F5DE90;
+					line-height: 14px;
+					margin-right: 7px;
+				}
+
+				.canGet {
+					margin-left: 5px;
+				}
+
+				.timeRect {
+					width: 17px;
+					line-height: 17px;
+					background: #5C4D3B;
+					border-radius: 1px;
+					color: #F8E098;
+					font-size: 9px;
+					font-weight: 600;
+				}
+
+				.sign {
+					height: 12px;
+					font-size: 12px;
+					font-family: SourceHanSansSC-Normal, SourceHanSansSC;
+					font-weight: 400;
+					color: #F5DE90;
+					line-height: 10px;
+					margin: 0 2px;
+				}
+			}
+
+			.yiguoqi {
+				margin-top: 13px;
+				margin-bottom: 0;
+			}
+
+			.receiveBtn {
+				width: 94px;
+				height: 30px;
+				line-height: 30px;
+				background: rgba(248, 224, 152, 1);
+				border-radius: 15px;
+				color: #734925;
+			}
+
+			.receiveBtnOver {
+				background: rgba(248, 224, 152, 1);
+				border-radius: 15px;
+				opacity: 0.5;
+				color: #734925;
+			}
+		}
+	}
+
+	// 我的奖品
+	.myPrize {
+		height: 104px;
+		padding: 16px 17px 14px 17px;
+		margin-bottom: 13px;
+
+		.splitLine {
+			width: 1px;
+			height: 63px;
+			opacity: 0.54;
+			border-left: 1px solid #E0AD60;
+		}
+
+		.prizeBox {
+			height: 100%;
+
+			.prizeNum {
+				font-size: 25px;
+				font-family: SourceHanSansCN-Medium, SourceHanSansCN;
+				font-weight: 500;
+				color: #E8A03F;
+				line-height: 25px;
+				margin-bottom: 4px;
+
+				span {
+					font-size: 9px;
+					font-family: SourceHanSansCN-Regular, SourceHanSansCN;
+					font-weight: 400;
+					color: #E8A03F;
+					line-height: 14px;
+				}
+			}
+
+			.prizeType {
+				font-size: 13px;
+				font-family: SourceHanSansCN-Medium, SourceHanSansCN;
+				font-weight: 500;
+				color: #F2D883;
+				line-height: 13px;
+				margin-bottom: 8px;
+			}
+
+			.touse {
+				width: 73px;
+				height: 23px;
+				background: rgba(239, 209, 119, 0.11);
+				border-radius: 14px;
+				border: 1px solid #EFD177;
+				color: #EFD177;
+				font-size: 11px;
+				line-height: 21px;
+			}
+		}
+	}
+
+	// 设置提醒
+	.remindSet {
+		padding: 14px 17px 14px 17px;
+		margin-bottom: 25px;
+
+		.setTxt {
+			font-size: 15px;
+			font-family: SourceHanSansSC-Medium, SourceHanSansSC;
+			font-weight: 500;
+			color: #F2D883;
+			line-height: 15px;
+			margin-bottom: 6px;
+		}
+
+		.setTxt2 {
+			font-size: 11px;
+			font-family: SourceHanSansSC-Regular, SourceHanSansSC;
+			font-weight: 400;
+			color: #CEBA7A;
+			line-height: 11px;
+		}
+
+		.remindBtn {
+			width: 83px;
+			line-height: 30px;
+			background: #F8E098;
+			border-radius: 15px;
+			font-size: 14px;
+			font-family: SourceHanSansCN-Medium, SourceHanSansCN;
+			font-weight: 500;
+			color: #734925;
+		}
+	}
+
+	.agreement {
+		line-height: 11px;
+		font-size: 11px;
+		font-family: SourceHanSansCN-Regular, SourceHanSansCN;
+		font-weight: 400;
+		color: #F2DA8D;
+		margin-bottom: 9px;
+	}
+
+	.company {
+		height: 9px;
+		font-size: 9px;
+		font-family: SourceHanSansCN-Normal, SourceHanSansCN;
+		font-weight: 400;
+		color: #F2DA8D;
+		margin-bottom: 17px;
+	}
+}
+
+.buttonWrap {
+	margin: 150px auto;
+}
+
+.handleBtn {
+	display: inline-block;
+	padding: 0 10px;
+	height: 30px;
+	line-height: 30px;
+	border-radius: 5px;
+	border: 1px solid #cecece;
+}

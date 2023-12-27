@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>问题详情</title>
+  <link rel="stylesheet" href="./index.css">
+  <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+</head>
+
+<body>
+  <div class="detailBox">
+    <div class="detail">
+      <div id="question">绑定的手机号码不再使用了，可以更换吗？</div>
+      <div id="answer">暂不支持更换手机号码。</div>
+      <div class="option">
+        <div id="like">
+          <img src="./imgs/like.png" alt=""><span>已解决</span>
+        </div>
+        <div id="dislike">
+          <img src="./imgs/dislike.png" alt=""><span>未解决</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const baseUrl = "https://hc-api.oo523.com/"
+    let detail = {}
+    // 点赞
+    function questionLike(likeType) {
+      $.ajax({
+        type: "post",
+        url: `${baseUrl}question/like`,
+        contentType: 'application/json',// 请求头中添加传递参数的格式
+        data: JSON.stringify({
+          questionId: detail.questionId,
+          likeType,// 1点赞、0点踩
+        }),
+        success: function (res) {
+          if (res.code == 0) {
+            showMessage("感谢您的反馈")
+          }
+        }
+      })
+    };
+    // 从sessionStorage中获取问题详情信息
+    function getQuestionDetail() {
+      detail = JSON.parse(sessionStorage.getItem("question"));
+      $("#question").html(detail.question)
+      $("#answer").html(detail.answer)
+    };
+    // 消息弹框
+    function showMessage(msg) {
+      const msgJQ = $(`<div class='messageBox'>${msg}</div>`);
+      // 先将元素隐藏，然后添加到页面，最后慢慢下拉显示出来
+      msgJQ.hide().appendTo("body").slideDown(100,"linear")
+      // 一段时间后自动删除生成的元素
+      window.setTimeout(function () {
+        msgJQ.show().slideUp(100, function () {
+          msgJQ.remove()
+        })
+      }, 2000)
+    };
+
+    $(function () {
+      getQuestionDetail();
+      $("#like").click(function () {
+        questionLike(1)
+      })
+      $("#dislike").click(function () {
+        questionLike(0)
+      })
+    })
+  </script>
+</body>
+
+</html>

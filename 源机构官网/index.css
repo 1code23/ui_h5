@@ -1,0 +1,187 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+.cc {
+  padding-left: calc(10% + 100px);
+  width: 65%;
+}
+body {
+  overflow: auto;
+  min-width: 1300px;
+}
+.imgW100 {
+  width: 100%;
+}
+.imgH100 {
+  height: 100%;
+}
+.img100 {
+  width: 100%;
+  height: 100%;
+}
+
+.banner {
+  display: flex;
+}
+.banner .left {
+  width: 40%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  padding-left: 10%;
+}
+.left .logoArea {
+  padding-top: 45px;
+  height: 67px;
+}
+.left .intr {
+  padding-top: 100px;
+  padding-left: 100px;
+}
+.intr .desc {
+  height: 120px;
+}
+.qrCode {
+  width: 200px;
+  margin-top: 40px;
+}
+.banner .right {
+  flex: 1;
+}
+.title {
+  margin-top: 58px;
+  margin-bottom: 18px;
+  font-size: 40px;
+  font-family: MicrosoftYaHei-Bold, MicrosoftYaHei;
+  font-weight: bold;
+}
+.subTitle {
+  font-size: 16px;
+  font-family: MicrosoftYaHei;
+  color: #333333;
+  margin-top: 20px;
+}
+.desc {
+  font-size: 16px;
+  font-family: MicrosoftYaHei;
+  color: #888888;
+  line-height: 2;
+  max-width: 980px;
+}
+#aboutUs .imgArea {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 28px;
+}
+.imgArea > div {
+  width: 31%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.imgArea img {
+  width: 100%;
+}
+#connectUs > div {
+  font-size: 16px;
+  font-family: MicrosoftYaHei;
+  color: #333333;
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+#connectUs > div > img {
+  margin-right: 8px;
+  width: 1%;
+  min-width: 20px;
+}
+
+.footer {
+  margin-top: 60px;
+  padding-top: 20px;
+  padding-left: 15px;
+  background: #ebeaea;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.footer > div {
+  margin-bottom: 15px;
+}
+.footer a,
+.footer span {
+  margin-right: 5px;
+  text-decoration: none;
+  color: #999999;
+}
+.footer div:first-child a {
+  color: #666;
+}
+@media only screen and (max-width: 750px) {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  body {
+    min-width: 100vw;
+  }
+  .cc {
+    padding-left: 20px;
+    width: 92%;
+  }
+  .banner .left {
+    padding-left: 10px;
+    width: 120px;
+  }
+  .left .logoArea {
+    padding-top: 10px;
+    height: 30px;
+  }
+  .left .intr {
+    padding-top: 20px;
+    padding-bottom: 40px;
+    padding-left: 10px;
+  }
+  .intr .desc {
+    height: 40px;
+  }
+  .qrCode{
+    width: 90px;
+    margin-top: 18px;
+  }
+
+  .title {
+    font-size: 16px;
+    margin-top: 20px;
+  }
+  .subTitle {
+    font-size: 14px;
+  }
+  .desc {
+    font-size: 12px;
+  }
+  #connectUs > div {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  .footer {
+    margin-top: 20px;
+    padding-bottom: 20px;
+    font-size: 12px;
+    justify-content: center;
+  }
+  .footer div {
+    margin-bottom: 5px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .footer .copyright {
+    display: flex;
+    justify-content: center;
+  }
+  .footer .copyright span {
+    padding: 0px 3px 5px;
+  }
+}

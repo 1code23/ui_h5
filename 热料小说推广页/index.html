@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>皇后在上，请受为夫一拜</title>
+  <style>
+    /* 公用css--start */
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-size: 16px;
+    }
+
+    body {
+      font-size: .75rem;
+    }
+
+    img {
+      height: 100%;
+    }
+
+    a {
+      text-decoration: none;
+      color: #739CF8;
+    }
+
+    .ml10 {
+      margin-left: .63rem;
+    }
+
+    .mb10 {
+      margin-bottom: .63rem;
+    }
+
+    .ml5 {
+      margin-left: .31rem;
+    }
+
+    .flc {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hide {
+      display: none;
+    }
+
+    .download-btn {
+      border-radius: .63rem;
+      text-align: center;
+      box-sizing: border-box;
+      padding: .63rem 1.25rem;
+      font-size: 1rem;
+      color: #fff;
+      background: linear-gradient(187deg, #FE4F30 0%, #FE353D 100%);
+    }
+
+    /* 公用css--end */
+
+    .box {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    /* 头部css--start */
+    .header {
+      height: 3rem;
+      background-color: #fff;
+      font-size: 1rem;
+      color: #2C2C2C;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      box-shadow: 0rem 0rem 1rem 0rem rgb(0 0 0 / 16%);
+      z-index: 9;
+    }
+
+    /* 头部css--end */
+
+    /* 中间内容css--start */
+    .content-wrapper {
+      flex: 1;
+      overflow: auto;
+    }
+
+    .content-wrapper .companyInfo {
+      height: 4.5rem;
+      background-color: #F2F2F2;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      color: #767171;
+      box-sizing: border-box;
+      padding: .63rem;
+    }
+
+    .content-wrapper .banner {
+      height: 10rem;
+      ;
+      display: flex;
+      justify-content: center;
+    }
+
+    .content-wrapper .banner img {
+      width: 100%;
+    }
+
+    .content-wrapper .novelWrapper {
+      border-radius: .63rem .63rem 0rem 0rem;
+      background: #fff;
+      transform: translateY(-0.63rem);
+    }
+
+    .content-wrapper .novelWrapper .title {
+      height: 3.13rem;
+      line-height: 3.13rem;
+      padding: 0 1.25rem;
+      font-size: 1rem;
+      color: #2C2C2C;
+    }
+
+    .content-wrapper .novelWrapper .intr {
+      padding: 0rem 1.69rem 1.88rem;
+      font-weight: 400;
+      color: #767171;
+      line-height: 2;
+    }
+
+    .content-wrapper .novelWrapper .intr p {
+      margin-block-start: 1em;
+      margin-block-end: 1em;
+    }
+
+    /* 中间内容css--end */
+
+
+    /* 底部css--start */
+    .footer {
+      z-index: 9;
+      padding: .63rem 1.25rem;
+      background-color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0rem 0rem 1rem 0rem rgba(0, 0, 0, 0.16);
+    }
+
+    .footer .left,
+    .footer .right {
+      display: flex;
+      align-items: center;
+    }
+
+    .footer .left .logo {
+      height: 2.81rem;
+      margin-right: .63rem;
+    }
+
+    .footer .left .desc>p:first-child {
+      font-size: .88rem;
+      font-weight: bold;
+      color: #373131;
+      margin-bottom: .31rem;
+    }
+
+    .footer .left .desc>p:last-child {
+      color: #767171;
+    }
+
+    .footer .right .download-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 1.25rem;
+    }
+
+    .footer .right img {
+      margin-right: .63rem;
+      height: 1.25rem;
+    }
+
+    .footer .right span {
+      display: inline-block;
+      height: 1.25rem;
+      line-height: 1rem;
+    }
+
+    /* 底部css--end */
+
+    #downloading {
+      padding: 1rem 2.25rem;
+      font-size: .88rem;
+      color: #fff;
+      position: fixed;
+      bottom: 9.38rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 99;
+      background: #000;
+      border-radius: .63rem;
+      opacity: 0.7;
+      width: 50vw;
+      text-align: center;
+    }
+
+    /* myDialog css--start */
+    .myDialog {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      z-index: 999;
+    }
+
+    .myDialog .dialogWrapper {
+      height: 50%;
+      width: 100%;
+      background-color: #fff;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0rem 0rem 1rem 0rem rgba(0, 0, 0, 0.16);
+    }
+
+    .myDialog .dialogHeader {
+      padding: .94rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .myDialog .title {
+      font-size: .88rem;
+      font-weight: bold;
+      color: #373131;
+    }
+
+    .myDialog .dialogHeader .close {
+      display: inline-block;
+      position: absolute;
+      right: 1.25rem;
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+
+    .myDialog .dialogBody {
+      flex: 1;
+      overflow: hidden;
+    }
+
+    /* myDialog css--end */
+
+    /* 应用详情弹窗 css--start */
+    .appDetail {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      width: 80%;
+      height: 90%;
+      box-sizing: border-box;
+      color: #767171;
+    }
+
+    .appDetail .logo {
+      width: 3.13rem;
+      height: 3.13rem;
+    }
+
+    .appDetail .download-btn {
+      width: 100%;
+    }
+
+    /* 应用详情弹窗 css--end */
+
+    /* 隐私政策弹窗 css--start */
+    .myDialog .privacyWrapper {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .privacyContent {
+      flex: 1;
+      overflow: hidden;
+      color: #767171;
+    }
+
+    .myIframe {
+      width: 100%;
+      height: 100%;
+    }
+
+    .privacyWrapper .btnArea {
+      padding: .63rem 1.25rem;
+      background-color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0rem 0rem 1rem 0rem rgba(0, 0, 0, 0.16);
+    }
+
+
+    .privacyWrapper .btnArea a {
+      display: inline-block;
+      padding: .63rem 1.88rem;
+      border-radius: .63rem;
+      background-color: #f1f1f6;
+      color: #484343;
+      font-size: 1rem;
+    }
+
+    .privacyWrapper .btnArea a.right {
+      background: linear-gradient(187deg, #FE4F30 0%, #FE353D 100%);
+      color: #fff;
+    }
+
+    /* 隐私政策弹窗 css--end */
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div class="header">
+      <span>皇后在上，请受为夫一拜</span>
+    </div>
+    <div class="content-wrapper">
+      <div class="companyInfo">
+        <p>
+          <span>开发者：上海卓悠网络科技有限公司</span>
+          <span class="ml10">应用名称：热料小说</span>
+        </p>
+        <p>
+          <span>版本：5.0.0</span>
+          <a class="ml10" href="./privacy.html?type=permission">应用权限</a>
+          <span class="ml5">|</span>
+          <a class="ml5" href="./privacy.html">隐私政策</a>
+        </p>
+      </div>
+      <div class="banner">
+        <img src="./imgs/banner.png" alt="">
+      </div>
+      <div class="novelWrapper">
+        <div class="title">皇后在上，请受为夫一拜</div>
+        <div class="intr">
+          <p>“能花得起500万两买你性命的人，一个巴掌就能数过来吧？我听说最近对方给你涨价了，300万两毁容，1000万两买你性命。”</p>
+          <p>“喔，挺大方的。”凤青翎依旧很平淡，心里隐隐有了答案，随口道，“看来，我以后若缺银子，可以用这张脸去换。”</p>
+          <p>“不许。”某人完全是本能反应。</p>
+          <p>“恩？”凤青翎没反应过来秦曜阳在不许什么，她的那句用脸去换，不过随口说说。</p>
+          <p>“你若缺银子，就找我。”某人依旧是本能。</p>
+          <p>“喔？多少都可以？”凤青翎几分调笑。</p>
+          <p>秦曜阳方笑了一下，转过身看着凤青翎：“当然，嫁给我，我的就是你的。”</p>
+          <p>微微上挑的语音，带着显而易见的诱.惑。</p>
+          <p>凤青翎哈哈两声，笑骂：“好了，没什么事了，你可以滚了。”</p>
+          <p>秦曜阳很是从善如流，他优雅的滚了，滚之前还不忘提醒凤青翎：“我一共偷亲你99次，欢迎你随时还回来。”</p>
+          <p>凤青翎咬牙，恨不得一脚把这个人踢出去。</p>
+          <p>还没动作，就见那人已凑近她的耳边：“我亲的是嘴，你还的时候，记得也要亲嘴……”</p>
+          <p>凤青翎怒：“谁说我要还了？”见过不要脸的，没见过这么不要脸的！</p>
+          <p>“那就是喜欢我的亲亲啰，之前还嘴硬说不喜欢……”那人笑着，很是愉悦的声音，人影很快消失在夜色中。</p>
+          <p>……</p>
+          <p>那日起，凤青翎对人生安全的防范法则就改了：</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="left">
+        <div class="logo">
+          <img src="./imgs/logo.png" alt="">
+        </div>
+        <div class="desc">
+          <p>点击下载热料小说</p>
+          <p>继续阅读全文</p>
+        </div>
+      </div>
+      <div class="right">
+        <div href="" class="download-btn" id="downloadBtn1">
+          <img src="./imgs/icon_download.png" alt=""><span>下载</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="downloading" class="hide">热料小说正在下载中……</div>
+  <div id="appDetailDialog" class="myDialog hide">
+    <div class="dialogWrapper">
+      <div class="dialogHeader">
+        <span class="title">应用详情</span>
+        <span class="close" parent="#appDetailDialog"><img src="./imgs/icon_close.png" alt=""></span>
+      </div>
+      <div class="dialogBody flc">
+        <div class="appDetail">
+          <div class="logo">
+            <img src="./imgs/logo.png" alt="">
+          </div>
+          <p class="title">热料小说</p>
+          <p class="mb10">热门小说免费读</p>
+          <p>版本：5.0.0</p>
+          <p>开发者：上海卓悠网络科技有限公司</p>
+          <p>
+            <a class="ml10" id="permissionBtn">应用权限</a>
+            <span class="ml5">|</span>
+            <a class="ml5" id="privacyBtn">隐私政策</a>
+          </p>
+          <div class="download-btn" id="downloadBtn2">立即下载</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="privacyDialog" class="myDialog hide">
+    <div class="dialogWrapper">
+      <div class="dialogHeader">
+        <span class="title privacy">隐私政策</span>
+        <span class="title permission hide">应用权限</span>
+        <span class="close" parent="#privacyDialog"><img src="./imgs/icon_close.png" alt=""></span>
+      </div>
+      <div class="dialogBody">
+        <div class="privacyWrapper">
+          <div class="privacyContent">
+            <iframe class="myIframe privacy"
+              src="https://readingbackend.droigroup.com:8443/hotprivacy/ios/privacy.html"
+              frameborder="0"></iframe>
+            <iframe class="myIframe permission hide"
+              src="https://readingbackend.droigroup.com:8443/hotprivacy/ios/permissions.html"
+              frameborder="0"></iframe>
+          </div>
+          <div class="btnArea">
+            <a class="left" id="back">上一步</a>
+            <a class="right download-btn" id="downloadBtn3">立即下载</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    // 重新计算根元素的fontsize，用于自适应布局
+    let fontSize = document.documentElement.clientWidth / 375 * 16
+    if (fontSize > 20) {
+      fontSize = 20
+    }
+    fontSize = fontSize + "px"
+    document.documentElement.style.fontSize = fontSize
+  </script>
+  <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+  <script>
+    // 主页页上的下载按钮点击事件
+    $("#downloadBtn1").click(function (e) {
+      $("#appDetailDialog").removeClass("hide")
+    })
+
+    // myDialog中关闭按钮触发事件
+    $(".myDialog .close").click(function (e) {
+      // 获取对应dialog的选择器
+      const parentId = $(this).attr("parent")
+      // 关闭对应 的dialog
+      $(parentId).addClass("hide")
+    })
+
+    // 弹窗应用详情中“应用权限”链接触发事件
+    $("#permissionBtn").click(function (e) {
+      e.preventDefault()
+      // 隐藏应用详情弹框
+      $("#appDetailDialog").addClass("hide")
+      // 显示隐私政策和应用全选的弹框
+      $("#privacyDialog").removeClass("hide")
+      // 隐藏“隐私政策”的内容
+      $(".privacy").addClass("hide")
+      // 显示“应用权限”的内容
+      $(".permission").removeClass("hide")
+    })
+
+    // 弹窗应用详情中“隐私政策”链接触发事件
+    $("#privacyBtn").click(function (e) {
+      e.preventDefault()
+      // 隐藏应用详情弹框
+      $("#appDetailDialog").addClass("hide")
+      // 显示隐私政策和应用全选的弹框
+      $("#privacyDialog").removeClass("hide")
+      // 隐藏“应用权限”的内容
+      $(".permission").addClass("hide")
+      // 显示“隐私政策”的内容
+      $(".privacy").removeClass("hide")
+    })
+
+    // 弹窗应用详情中“立即下载”链接触发事件
+    $("#downloadBtn2").click((e) => {
+      $("#appDetailDialog").addClass("hide")
+      this.download()
+    })
+
+    // 弹窗隐私政策中“上一步”链接触发事件
+    $(".btnArea #back").click(function (e) {
+      e.preventDefault()
+      $("#appDetailDialog").removeClass("hide")
+      $("#privacyDialog").addClass("hide")
+    })
+
+    // 弹窗隐私政策中“立即下载”链接触发事件
+    $("#downloadBtn3").click((e) => {
+      $("#privacyDialog").addClass("hide")
+      this.download()
+    })
+
+    // 下载函数
+    function download() {
+      // 显示正在下载的div
+      $("#downloading").removeClass("hide")
+      // 设置定时器，两秒后隐藏
+      const timer = setTimeout(function () {
+        $("#downloading").addClass("hide")
+        clearTimeout(timer)
+      }, 2000)
+
+      // 下载代码逻辑代码
+      // 下载代码逻辑代码
+      // 下载代码逻辑代码
+      // 下载代码逻辑代码
+      // 下载代码逻辑代码
+      // 下载代码逻辑代码
+    }
+
+  </script>
+</body>
+
+</html>

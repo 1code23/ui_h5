@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>帮助与反馈</title>
+  <link rel="stylesheet" href="./index.css">
+  <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+</head>
+
+<body>
+  <div class="box">
+    <div class="title">常见问题</div>
+    <ul id="questions">
+      <!-- js渲染问题列表 -->
+    </ul>
+  </div>
+  <script>
+    const baseUrl = "https://hc-api.oo523.com/"
+    let questionList = []
+    // 获取问题列表
+    function getQuestionList() {
+      $.ajax({
+        type: 'get',
+        url: `${baseUrl}question?page=1&pageNum=100`,
+        dataType: 'json',
+        success: function (res) {
+          if (res.code == 0) {
+            let str = ""
+            const list = res.data;
+            questionList = list;
+            list.forEach(item => {
+              str += `<li questionId=${item.questionId}>${item.question}</li>`
+            });
+            $("#questions").html(str)
+          }
+        }
+      });
+    }
+    // 页面加载后执行
+    $(function () {
+      getQuestionList();// 获取问题列表
+
+      // 绑定点击事件
+      $("#questions").on("click", "li", function () {
+        const questionId = $(this).attr("questionId");
+        // 获取点击问题的详情
+        const obj = questionList.find(item => item.questionId == questionId);
+        sessionStorage.setItem("question", JSON.stringify(obj));// 将问题信息存储到sessionStorage中
+        window.location.href = "detail.html";// 跳转详情页
+      })
+    })
+  </script>
+</body>
+
+</html>

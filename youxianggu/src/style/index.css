@@ -1,0 +1,298 @@
+.page {
+    background-color: rgba(255, 255, 255, 1);
+    position: relative;
+    /* width: 1920px; */
+    height: 1518px;
+    overflow: hidden;
+  }
+  .test2{
+    color:yellow
+  }
+  .section_1 {
+    background-image: url("../assets/page1_banner.png");
+    /* width: 1920px; */
+    height: 720px;
+  }
+  
+  .image-wrapper_1 {
+    background-color: rgba(255, 255, 255, 1);
+    /* width: 1920px; */
+    height: 80px;
+    border: 1px solid rgba(151, 151, 151, 1);
+    box-sizing: border-box;
+  }
+  
+  .image_1 {
+    width: 139px;
+    height: 58px;
+    margin: 11px 0 0 64px;
+  }
+  
+  .image_2 {
+    width: 80px;
+    height: 34px;
+    margin: 22px 1718px 0 0;
+  }
+  
+  .group_1 {
+    width: 1120px;
+    height: 300px;
+    margin: 170px 0 170px 400px;
+  }
+  
+  .text-group_3 {
+    width: 817px;
+    height: 133px;
+    margin-top: 95px;
+  }
+  
+  .text_1 {
+    width: 160px;
+    height: 58px;
+    overflow-wrap: break-word;
+    color: rgba(255, 255, 255, 1);
+    font-size: 40px;
+    font-family: SourceHanSansCN-Bold;
+    font-weight: 700;
+    text-align: left;
+    white-space: nowrap;
+    line-height: 58px;
+  }
+  
+  .text_2 {
+    width: 816px;
+    height: 60px;
+    overflow-wrap: break-word;
+    color: rgba(255, 255, 255, 1);
+    font-size: 20px;
+    font-family: SourceHanSansCN-Regular;
+    font-weight: NaN;
+    text-align: left;
+    line-height: 30px;
+    margin: 15px 0 0 1px;
+  }
+  
+  .box_1 {
+    border-radius: 16px;
+    background-image: url("../assets/page1_img_code.png");
+    width: 260px;
+    height: 300px;
+  }
+  
+  .box_2 {
+    background-color: rgba(51, 51, 51, 1);
+    width: 28px;
+    height: 12px;
+    margin: 224px 0 0 110px;
+  }
+  
+  .text_3 {
+    width: 221px;
+    height: 25px;
+    overflow-wrap: break-word;
+    color: rgba(51, 51, 51, 1);
+    font-size: 17px;
+    font-family: SourceHanSansCN-Bold;
+    font-weight: 700;
+    text-align: left;
+    white-space: nowrap;
+    line-height: 25px;
+    margin: 7px 0 32px 19px;
+  }
+  
+  .section_2 {
+    background-image: url("../assets/page1_bg.png");
+    /* width: 1920px; */
+    height: 718px;
+  }
+  
+  .text-group_4 {
+    width: 981px;
+    height: 130px;
+    margin: 60px 0 0 400px;
+  }
+  
+  .text-wrapper_1 {
+    width: 667px;
+    height: 58px;
+    overflow-wrap: break-word;
+    font-size: 0;
+    font-family: SourceHanSansCN-Bold;
+    font-weight: 700;
+    text-align: left;
+    white-space: nowrap;
+    line-height: 58px;
+  }
+  
+  .text_4 {
+    width: 667px;
+    height: 58px;
+    overflow-wrap: break-word;
+    color: rgba(51, 51, 51, 1);
+    font-size: 40px;
+    font-family: SourceHanSansCN-Bold;
+    font-weight: 700;
+    text-align: left;
+    white-space: nowrap;
+    line-height: 58px;
+  }
+  
+  .text_5 {
+    width: 667px;
+    height: 58px;
+    overflow-wrap: break-word;
+    color: rgba(51, 51, 51, 1);
+    font-size: 20px;
+    font-family: SourceHanSansCN-Regular;
+    font-weight: NaN;
+    text-align: left;
+    line-height: 58px;
+  }
+  
+  .text_6 {
+    width: 980px;
+    height: 54px;
+    overflow-wrap: break-word;
+    color: rgba(136, 136, 136, 1);
+    font-size: 17px;
+    font-family: SourceHanSansCN-Regular;
+    font-weight: NaN;
+    text-align: left;
+    line-height: 27px;
+    margin: 18px 0 0 1px;
+  }
+  
+  .box_5 {
+    width: 1120px;
+    height: 400px;
+    margin: 20px 0 108px 400px;
+  }
+  
+  .box_4 {
+    border-radius: 16px;
+    background-image: url("../assets/page2_img1.png");
+    height: 399px;
+    width: 360px;
+  }
+  
+  .text-wrapper_2 {
+    height: 60px;
+    background: url(https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng27809b5b581aac4e0f518691c5c07d19e193784ff49e969c2f870a736ba96b8e)
+      100% no-repeat;
+    background-size: 100% 100%;
+    margin-top: 339px;
+    width: 360px;
+  }
+  
+  .text_7 {
+    width: 34px;
+    height: 25px;
+    overflow-wrap: break-word;
+    color: rgba(255, 255, 255, 1);
+    font-size: 17px;
+    font-family: SourceHanSansCN-Regular;
+    font-weight: NaN;
+    text-align: left;
+    white-space: nowrap;
+    line-height: 25px;
+    margin: 18px 0 0 163px;
+  }
+  
+  .grid_2 {
+    width: 740px;
+    height: 400px;
+    flex-wrap: wrap;
+  }
+  
+  .list-items_1-0 {
+    border-radius: 16px;
+    background-image: url("../assets/page2_img2.png");
+    height: 190px;
+    width: 360px;
+    margin: 0 20px 20px 0;
+  }
+  
+  .text-wrapper_3 {
+    height: 60px;
+    background: url(https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng27809b5b581aac4e0f518691c5c07d19e193784ff49e969c2f870a736ba96b8e)
+      100% no-repeat;
+    background-size: 100% 100%;
+    margin-top: 130px;
+    width: 360px;
+  }
+  
+  .text_8 {
+    width: 34px;
+    height: 25px;
+    overflow-wrap: break-word;
+    color: rgba(255, 255, 255, 1);
+    font-size: 17px;
+    font-family: SourceHanSansCN-Regular;
+    font-weight: NaN;
+    text-align: left;
+    white-space: nowrap;
+    line-height: 25px;
+    margin: 18px 0 0 163px;
+  }
+  
+  .list-items_1-1 {
+    border-radius: 16px;
+    height: 190px;
+    width: 360px;
+    margin: 0 20px 20px 0;
+    margin-right: 0;
+    background-image: url("../assets/page2_img4.png");
+  }
+  
+  .list-items_1-2 {
+    border-radius: 16px;
+    height: 190px;
+    width: 360px;
+    margin: 0 20px 20px 0;
+    margin-bottom: 0;
+    background-image: url("../assets/page2_img3.png");
+  }
+  .list-items_1-3 {
+    border-radius: 16px;
+    height: 190px;
+    width: 360px;
+    margin: 0 20px 20px 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    background-image: url("../assets/page2_img5.png");
+  }
+  .text-wrapper_4 {
+    background-color: rgba(29, 25, 19, 0.04);
+    /* width: 1920px; */
+    height: 80px;
+    justify-content: flex-center;
+  }
+  
+  .text_9 {
+    width: 435px;
+    height: 17px;
+    overflow-wrap: break-word;
+    color: rgba(153, 153, 153, 1);
+    font-size: 12px;
+    font-family: SourceHanSansCN-Regular;
+    font-weight: NaN;
+    text-align: left;
+    white-space: nowrap;
+    line-height: 17px;
+    margin: 19px 0 0 742px;
+  }
+  
+  .text_10 {
+    width: 55px;
+    height: 17px;
+    overflow-wrap: break-word;
+    color: rgba(153, 153, 153, 1);
+    font-size: 12px;
+    font-family: SourceHanSansCN-Regular;
+    font-weight: NaN;
+    text-align: left;
+    white-space: nowrap;
+    line-height: 17px;
+    margin: 8px 0 19px 933px;
+  }
+  

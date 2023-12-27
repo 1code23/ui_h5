@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>热料小说推广页</title>
+  <style>
+    /* 公用css--start */
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-size: 16px;
+    }
+
+    body {
+      font-size: .75rem;
+    }
+
+    img {
+      height: 100%;
+    }
+
+    a {
+      text-decoration: none;
+      color: #739CF8;
+    }
+
+    .ml10 {
+      margin-left: .63rem;
+    }
+
+    .mb10 {
+      margin-bottom: .63rem;
+    }
+
+    .ml5 {
+      margin-left: .31rem;
+    }
+
+    .flc {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hide {
+      display: none;
+    }
+
+    /* 公用css--end */
+
+    .box {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    /* 头部css--start */
+    .header {
+      height: 3rem;
+      background-color: #fff;
+      font-size: 1rem;
+      color: #2C2C2C;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      box-shadow: 0rem 0rem 1rem 0rem rgb(0 0 0 / 16%);
+      z-index: 9;
+    }
+
+    .header .left {
+      position: absolute;
+      left: .63rem;
+      display: flex;
+      align-items: center;
+      height: 1.5rem;
+    }
+
+    .header .left a {
+      height: 100%;
+    }
+
+    .header .left .close {
+      margin-left: .63rem;
+    }
+
+    /* 头部css--end */
+
+    /* 中间内容css--start */
+    .content-wrapper {
+      flex: 1;
+      overflow: hidden;
+      box-sizing: border-box;
+      color: #767171;
+    }
+
+    .myIframe {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* 中间内容css--end */
+
+    #downloading {
+      padding: 1rem 2.25rem;
+      font-size: .88rem;
+      color: #fff;
+      position: fixed;
+      bottom: 9.38rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 99;
+      background: #000;
+      border-radius: .63rem;
+      opacity: 0.7;
+      width: 50vw;
+      text-align: center;
+    }
+
+    /* 底部css--start */
+    .footer {
+      z-index: 9;
+      padding: .63rem 1.25rem;
+      background-color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0rem 0rem 1rem 0rem rgba(0, 0, 0, 0.16);
+    }
+
+
+    .footer a {
+      display: inline-block;
+      padding: .63rem 1.88rem;
+      border-radius: .63rem;
+      background-color: #f1f1f6;
+      color: #484343;
+      font-size: 1rem;
+    }
+
+    .footer a.right {
+      background: linear-gradient(187deg, #FE4F30 0%, #FE353D 100%);
+      color: #fff;
+    }
+
+    /* 底部css--end */
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div class="header">
+      <div class="left">
+        <a class="back" href="./index.html">
+          <img src="./imgs/icon_left.png" alt="">
+        </a>
+      </div>
+      <span>皇后在上，请受为夫一拜</span>
+    </div>
+    <div class="content-wrapper">
+      <iframe class="myIframe privacy" src="https://readingbackend.droigroup.com:8443/hotprivacy/ios/privacy.html"
+        frameborder="0"></iframe>
+      <iframe class="myIframe permission hide"
+        src="https://readingbackend.droigroup.com:8443/hotprivacy/ios/permissions.html" frameborder="0"></iframe>
+    </div>
+    <div class="footer">
+      <a class="left" href="./index.html">上一步</a>
+      <a class="right" id="downloadBtn">立即下载</a>
+    </div>
+  </div>
+  <div id="downloading" class="hide">热料小说正在下载中……</div>
+  <script>
+    // 重新计算根元素的fontsize，用于自适应布局
+    let fontSize = document.documentElement.clientWidth / 375 * 16
+    if (fontSize > 20) {
+      fontSize = 20
+    }
+    fontSize = fontSize + "px"
+    document.documentElement.style.fontSize = fontSize
+  </script>
+  <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+  <script>
+    // 页面底部中“立即下载”链接触发事件
+    $("#downloadBtn").click((e) => {
+      this.download()
+    })
+    // 下载函数
+    function download() {
+      // 显示正在下载的div
+      $("#downloading").removeClass("hide")
+      // 设置定时器，两秒后隐藏
+      const timer = setTimeout(function () {
+        $("#downloading").addClass("hide")
+        clearTimeout(timer)
+      }, 2000)
+
+      // 下载代码逻辑代码
+      // 下载代码逻辑代码
+      // 下载代码逻辑代码
+      // 下载代码逻辑代码
+      // 下载代码逻辑代码
+      // 下载代码逻辑代码
+    }
+    /*此方法为jquery 获取url路径参数的方法*/
+    function getUrlParam(name) {
+      var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+      var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+      if (r != null) return unescape(r[2]); return null; //返回参数值
+    }
+    // 判断需要显示的iframe是隐私政策还是应用详情
+    function changeIframe() {
+      const type = getUrlParam("type");/*此处为调用：获取路径参数的方法*///var type = getUrlParam("type");/*此处为调用：获取路径参数的方法*/
+      if (type == "permission") {
+        // 隐藏“隐私政策”的内容
+        $(".privacy").addClass("hide")
+        // 显示“应用权限”的内容
+        $(".permission").removeClass("hide")
+
+      } else {
+        // 隐藏“应用权限”的内容
+        $(".permission").addClass("hide")
+        // 显示“隐私政策”的内容
+        $(".privacy").removeClass("hide")
+      }
+    }
+    changeIframe()
+  </script>
+</body>
+
+</html>

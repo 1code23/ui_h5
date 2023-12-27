@@ -1,0 +1,59 @@
+/* color palette from <https://github.com/vuejs/theme> */
+
+:root {
+  --vt-c-white: #ffffff;
+  --vt-c-black: #181818;
+  --vt-c-red: rgba(229, 36, 25, 1);
+}
+
+:root:root {
+  --van-tabs-bottom-bar-width: 30px;
+  --van-tabs-bottom-bar-color: var(--vt-c-red);
+  --van-tab-active-text-color: var(--vt-c-red);
+  --van-back-top-background: #fff;
+  --van-back-top-text-color: #666;
+  --van-back-top-right: 10px;
+  --van-back-top-icon-size: 18px;
+  --van-back-top-size: 30px;
+}
+
+@mixin multi-ellipsis($line) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $line;
+  /* autoprefixer: ignore next */
+  -webkit-box-orient: vertical;
+  word-break: break-all;
+}
+
+@mixin flex() {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row nowrap;
+  flex-flow: row nowrap;
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+  -webkit-align-items: stretch;
+  align-items: stretch;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+  transition: color 0.5s, background-color 0.5s;
+  line-height: 1.6;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  font-size: 15px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

@@ -1,0 +1,37 @@
+{
+  "id": "4268856",
+  "name": "同城旅行",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "8631647",
+      "name": "关闭",
+      "font_class": "guanbi",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "11893488",
+      "name": "关闭",
+      "font_class": "guanbi1",
+      "unicode": "e611",
+      "unicode_decimal": 58897
+    },
+    {
+      "icon_id": "680685",
+      "name": "单选框",
+      "font_class": "danxuankuang",
+      "unicode": "e6f0",
+      "unicode_decimal": 59120
+    },
+    {
+      "icon_id": "34984969",
+      "name": "单选",
+      "font_class": "danxuan",
+      "unicode": "e718",
+      "unicode_decimal": 59160
+    }
+  ]
+}

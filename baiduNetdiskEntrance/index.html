@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>超大空间免费送</title>
+  <link rel="stylesheet" href="css/index.css">
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
+</head>
+
+<body>
+  <div class="detail">
+    <div class="content">
+      <div class="voucher">
+        <div id="voucher-code" class="voucher-code"></div>
+        <div id="receive-now" class="voucher-code" style="display: none;" onClick="handleClickReceiveNow()">立即领取</div>
+        <div class="exchange-method">
+          <p style="margin-bottom:3vw; color: #333; font-size: 4vw">
+            <strong>兑换方法：</span></strong>
+          </p>
+          <p>
+            <strong>*专属福利：</strong><span>持有兑换码可至网盘将空间提升至</span>2T;
+          </p>
+          <p>
+            <strong>*空间有效期：</strong><span>兑换之日起1年；</span>
+          </p>
+          <p>
+            <strong>*兑换方式：</strong><span>点击「<strong>立即兑换</strong>」— 进入「<strong>百度网盘</strong>」— 在「<strong>我的</strong>」— 「<strong>活动中心</strong>」找到活动入口，<strong>输入兑换码</strong>兑换</span>
+          </p>
+        </div>
+        <button id="redeem-now" onClick="handleClickRedeemNow()" disabled>立即兑换</button>
+      </div>
+      <div class="explanation">
+        <img src="./imgs/explanation.png" alt="">
+        <ol>
+          <li>
+            <span>每个兑换码只能使用1次；</span>
+          </li>
+          <li>
+            <span>每个账号只能兑换1次；</span>
+          </li>
+          <li>
+            <span>兑换时，如果账号空间不足2T，兑换后空间将提升至2T；<br /> 兑换时，如果账号空间超过2T，将无法兑换。</span>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

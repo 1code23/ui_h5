@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>头部内容</title>
+</head>
+
+<body>
+  <div class="headerWrapper">
+    <div class="cc navWrapper">
+      <div class="logoArea cursor" onclick="handleClickLogo()">
+        <div class="logo cursor">
+          <img src="./imgs/img_logo.png" alt="">
+        </div>
+        <div class="logoText pc" class="lang" langKey="logoText">DROI DIGITAL UNIVERSE</div>
+      </div>
+      <ul class="myNav pc">
+        <li class="myDropdown">
+          <span class="lang" langKey="productsNav">PRODUCTS</span>
+          <ul class="myDropdownMenu">
+            <li><a href="./performance.html" id="performance" class="linkItem lang" langKey="performNav">Supreme Performance</a></li>
+            <li><a href="./smartApp.html" id="smartApp" class="linkItem lang" langKey="smartNav">Smart Application Scenarios</a></li>
+            <li><a href="./camera.html" id="camera" class="linkItem lang" langKey="cameraNav">Camera System</a></li>
+            <li><a href="./liteApp.html" id="liteApp" class="linkItem lang" langKey="liteNav">Lite Application</a></li>
+            <li><a href="./darkMode.html" id="darkMode" class="linkItem lang" langKey="darkNav">Aesthetics of Vitality</a></li>
+          </ul>
+        </li>
+        <li class="myDropdown">
+          <span class="lang" langKey="companyNav">COMPANY</span>
+          <ul class="myDropdownMenu">
+            <!-- <li><a href="./partners.html" class="linkItem">Partners</a></li> -->
+            <li><a href="./contactUs.html" id="contactUs" class="linkItem lang" langKey="contactUs">Contact Us</a></li>
+          </ul>
+        </li>
+        <li class="myDropdown">
+          <span id="showLang">English</span>
+          <ul class="myDropdownMenu">
+            <li class="translate" langId="en-us"><span class="linkItem">English<span /></li>
+            <li class="translate" langId="es-es"><span class="linkItem">Español<span /></li>
+            <li class="translate" langId="fr"><span class="linkItem">Français<span /></li>
+            <li class="translate" langId="ar"><span class="linkItem">عربي<span /></li>
+          </ul>
+        </li>
+      </ul>
+      <div class="mobile navBtn" onclick="handleNavBtn()">
+        <img src="./imgs/nav_btn_sidebar.png" alt="">
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+    function handleClickLogo() {
+      location.href = "index.html"
+    }
+    function handleNavBtn() {
+      location.href = "mobileMenu.html"
+    }
+    $(document).ready(function () {
+      // 高亮显示对应的选中的navBar
+      var currentRoute = location.pathname.split("/").pop().split(".").shift()
+      $(".linkItem .myDropdown").removeClass("active")
+      $("#"+currentRoute).addClass("active")
+      $("#"+currentRoute).parents(".myDropdown").addClass("active")
+    })
+
+  </script>
+</body>
+
+</html>

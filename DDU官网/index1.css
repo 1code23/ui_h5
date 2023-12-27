@@ -1,0 +1,7 @@
+.disfr{
+  display: flex;
+  color: red;
+}
+.jfd{
+  justify-content: flex-end;
+}

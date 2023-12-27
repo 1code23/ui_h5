@@ -1,0 +1,57 @@
+﻿
+/*重置*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, dl, dt, dd, ol, nav ul, nav li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0px; padding: 0px; border: 0px none; font-size: 100%; vertical-align: baseline; font-family: AlibabaSans-Light,letter-spacing: 0px; }
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
+blockquote, q { quotes: none; }
+blockquote::before, blockquote::after, q::before, q::after { content: none; }
+a { text-decoration: none; }
+b { padding: 0px; margin: 0px;letter-spacing: 0.2px; }
+img { max-width: 100%; }
+ol, ul { list-style: outside none none; margin: 0px; padding: 0px; }
+table { border-collapse: collapse; border-spacing: 0px; }
+* { margin: 0px; padding: 0px; }
+fieldset, img { border: 0px none; vertical-align: top; }
+address, caption, cite, code, dfn, em, th, var, i { font-weight: normal; font-style: normal; letter-spacing: 0em; }
+ol li, ul li, dl dt, dl dd { list-style: outside none none; letter-spacing: 0em; }
+ul, ol { height: auto; display: block; }
+caption, th { text-align: left; }
+h1, h2, h3, h4, h5, h6 { font-weight: normal; font-size: 100%; letter-spacing: 0px; }
+input, button, textarea, checkbox, select, radio { vertical-align: middle; outline: none;}
+iframe { vertical-align: top; }
+a { vertical-align: top; text-decoration: none; color: #888888;}
+a:hover { text-decoration: none;color: #e60012; }
+
+/*清除苹果样式*/
+input[type=button], input[type=submit], input[type=file], button { cursor: pointer; -webkit-appearance: none; }
+textarea {
+　　-webkit-appearance: none;
+}
+
+html,body{margin:0 auto;}
+/*设置浮动*/
+.fl {float: left;}
+.fr {float: right;}
+.clearfix:after {content: "";display: block;height: 0; clear: both;}
+.clearfix {zoom: 1;}
+
+/*颜色*/
+.red{color: #e60012;}
+.bg_red{background: #e60012;}
+.table{display: table;}
+.table_cell{display: table-cell;vertical-align: middle;}
+
+
+strong{font-weight: bolder;}
+
+
+@font-face {
+font-family: 'AlibabaSans-Light';
+src:  url('../fonts/AlibabaSans-Light.ttf')  format('truetype'); /* IE9 Compat Modes */
+src: url('../fonts/AlibabaSans-Light.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../fonts/AlibabaSans-Light.woff') format('woff'), /* Modern Browsers */
+         url('../fonts/AlibabaSans-Light.eot'), /* Safari, Android, iOS */
+         url('../fonts/AlibabaSans-Light.svg#AlibabaSans-Light') format('svg'); /* Legacy iOS */
+}
+
+body{font-family:AlibabaSans-Light;}

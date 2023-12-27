@@ -1,0 +1,16 @@
+{
+  "id": "4072096",
+  "name": "搜搜",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "907383",
+      "name": "视频",
+      "font_class": "shipin",
+      "unicode": "e650",
+      "unicode_decimal": 58960
+    }
+  ]
+}

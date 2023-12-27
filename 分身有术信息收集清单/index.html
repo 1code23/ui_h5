@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>个人信息收集清单</title>
+	<style>
+
+	</style>
+</head>
+
+<body>
+	<div class="box " id="box">
+		<div class="wrap fc">
+			<!-- <div class="header disfr ac ">
+				<img src="./src/images/pageBack.png" class="backimg"></img>
+				<span class="title tc flex1">个人信息收集清单</span>
+				<img src="./src/images/pageBack.png" class="backimg opa0"></img>
+			</div> -->
+			<div class="content flex1 verticalScroll">
+				<div class="readme mb18">
+					分身有术Pro将尽全力保护您的个人安全，并保障您在个人信息处理过程中的相关权益。为了向您提供分身有术Pro的基本功能及附加功能，我们需要收集您在使用服务时通过您主动授权/提供等方式产生的个人信息。以下我们将逐一说明收集情况，方便您快速查阅。
+				</div>
+				<div class="info mb18">
+					<div class="headLabel">
+						1.账号信息
+					</div>
+					<div class="txtBox">
+						<p class="infotext disfr">
+							<span class="label">使用目的：</span>
+							<span class="flex1">注册、登录</span>
+						</p>
+						<p class="infotext disfr">
+							<span class="label">使用场景：</span>
+							<span class="flex1">创建账号、登录、认证</span>
+						</p>
+						<p class="infotext disfr">
+							<span class="label">收集情况：</span>
+							<span class="flex1">已收集</span>
+						</p>
+						<p class="infotext disfr">
+							<span class="label">信息内容：</span>
+							<span class="flex1">{{phoneNum}}</span>
+						</p>
+					</div>
+				</div>
+				<div class="info mb18">
+					<div class="headLabel">
+						2.设备信息
+					</div>
+					<div class="txtBox">
+						<p class="infotext disfr">
+							<span class="label">使用目的：</span>
+							<span class="flex1">绑定会员信息</span>
+						</p>
+						<p class="infotext disfr">
+							<span class="label">使用场景：</span>
+							<span class="flex1">用户购买会员后，需要将会员和您的设备进行绑定</span>
+						</p>
+						<p class="infotext disfr">
+							<span class="label">收集情况：</span>
+							<span class="flex1">已收集</span>
+						</p>
+						<p class="infotext disfr">
+							<span class="label">信息内容：</span>
+							<span class="flex1">deviceId</span>
+						</p>
+					</div>
+					<div class="tableBox">
+						<table class="ruleTable">
+							<tr>
+								<td>
+									<div class="cell">
+										deviceId
+									</div>
+								</td>
+								<td>
+									<div class="cell">
+										{{deviceId}}
+									</div>
+								</td>
+							</tr>
+						</table>
+					</div>
+
+				</div>
+				<div class="info mb18">
+					<div class="headLabel">
+						3.订单信息
+					</div>
+					<div class="txtBox">
+						<p class="infotext disfr">
+							<span class="label">使用目的：</span>
+							<span class="flex1">购买会员后需要核验订单信息下发会员服务</span>
+						</p>
+						<p class="infotext disfr">
+							<span class="label">使用场景：</span>
+							<span class="flex1">在您购买会员服务时</span>
+						</p>
+						<p class="infotext disfr">
+							<span class="label">收集情况：</span>
+							<span class="flex1">{{list.length}}次</span>
+						</p>
+						<p class="infotext disfr">
+							<span class="label">信息内容：</span>
+							<span class="flex1">订单号、订单金额</span>
+						</p>
+					</div>
+					<div class="tableBox">
+						<table class="ruleTable">
+							<tr>
+								<td>
+									<div class="cell">
+										收集时间
+									</div>
+								</td>
+								<td>
+									<div class="cell">
+										订单号
+									</div>
+								</td>
+								<td>
+									<div class="cell">
+										订单金额
+									</div>
+								</td>
+							</tr>
+							<!-- <tr>
+								<td>
+									<div class="cell">
+										2022-03-26 14:26:41
+									</div>
+								</td>
+								<td>
+									<div class="cell">
+										16482760013064964404
+									</div>
+								</td>
+								<td>
+									<div class="cell">
+										999元
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<div class="cell">
+										2022-03-26 14:26:41
+									</div>
+								</td>
+								<td>
+									<div class="cell">
+										16482760013064964404
+									</div>
+								</td>
+								<td>
+									<div class="cell">
+										999元
+									</div>
+								</td>
+							</tr> -->
+
+							<tr v-for="(item,index) in list" :key="index">
+								<td>
+									<div class="cell createdat">
+										<div class="textcell">{{item.CreatedAt}}</div>
+										
+									</div>
+								</td>
+								<td>
+									<div class="cell order">
+										<div class="textcell">{{item.TraderNo}}</div>
+										
+									</div>
+								</td>
+								<td>
+									<div class="cell amount">
+										<div class="textcell">{{item.TotalAmount}}元</div>
+									</div>
+								</td>
+							</tr>
+						</table>
+					</div>
+
+				</div>
+				<div class="info mb18">
+					<div class="headLabel">
+						4.日志信息
+					</div>
+					<div class="txtBox">
+						<p class="infotext disfr">
+							<span class="label">使用目的：</span>
+							<span class="flex1">实现和维护功能的正常运行</span>
+						</p>
+						<p class="infotext disfr">
+							<span class="label">使用场景：</span>
+							<span class="flex1">在您使用分身有术Pro基础功能和出现奔溃时</span>
+						</p>
+						<p class="infotext disfr">
+							<span class="label">收集情况：</span>
+							<span class="flex1">已收集</span>
+						</p>
+						<p class="infotext disfr">
+							<span class="label">信息内容：</span>
+							<span class="flex1">行为日志、奔溃日志</span>
+						</p>
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+		<div id="loading" class="loading ">
+			<img class="loadingImg fixedAuto" src="./src/images/loading.png" alt="">
+			<div class="toastMask"></div>
+		</div>
+
+
+
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,1768 @@
+/* 公共样式--start */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+
+.cc {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+.opacity5 {
+  opacity: 0.5;
+}
+
+.page {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #f5f5f5;
+  min-width: 1350px;
+}
+
+.pc {
+  display: block;
+}
+
+.mobile {
+  display: none;
+}
+
+.container {
+  flex: 1;
+  overflow: auto;
+}
+
+.disc {
+  display: flex;
+  flex-direction: column;
+}
+
+.jc {
+  justify-content: center;
+}
+
+.jsb {
+  justify-content: space-between;
+}
+
+.ac {
+  align-items: center;
+}
+
+.partIntr {
+  font-size: 18px;
+  line-height: 25px;
+}
+
+.partIntr .partTitle {
+  font-size: 48px;
+  font-weight: 700;
+  color: #333333;
+  line-height: 68px;
+  margin-bottom: 14px;
+  position: relative;
+}
+
+.partIntr .partTitle:before {
+  display: inline-block;
+  width: 69px;
+  height: 37px;
+  content: "";
+  background: url("./imgs/img_title.png") no-repeat center;
+  background-size: contain;
+  position: absolute;
+  top: -35px;
+  right: 0;
+}
+
+.partIntr .partTitle.iconCenter::before {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.partIntr.colorWhite {
+  color: #fff;
+}
+
+.partIntr.colorWhite .partTitle {
+  color: #fff;
+}
+
+.logo {
+  width: 48px;
+}
+
+.myNav {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.myNav > li {
+  float: left;
+  font-size: 14px;
+  font-family: PingFangSC-Semibold, PingFang SC;
+  font-weight: 600;
+  color: #333333;
+  padding: 0px 30px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.myDropdown {
+  position: relative;
+  cursor: pointer;
+}
+
+.myDropdown:hover,
+.myDropdown.active {
+  color: #005bfd;
+}
+
+.myDropdown:hover .myDropdownMenu {
+  display: block;
+}
+
+.myDropdownMenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 999;
+  float: left;
+  padding: 12px 0;
+  margin-top: -5px;
+  font-size: 14px;
+  line-height: 19px;
+  text-align: right;
+  list-style: none;
+  border-radius: 8px;
+  background-clip: padding-box;
+  background-color: #fff;
+  box-shadow: 0px 2px 18px 0px rgba(0, 0, 0, 0.1);
+}
+
+/* 利用伪类实现三角形*/
+.myDropdownMenu::before {
+  display: inline-block;
+  content: "";
+  width: 0;
+  height: 0;
+  border: 10px solid;
+  border-color: transparent;
+  border-bottom-color: #fff;
+  position: absolute;
+  top: -19px;
+  left: 30px;
+  z-index: 99;
+}
+
+/* 利用定位差实现阴影效果 */
+.myDropdownMenu::after {
+  display: inline-block;
+  content: "";
+  width: 0;
+  height: 0;
+  border: 12px solid;
+  border-color: transparent;
+  border-bottom-color: rgba(0, 0, 0, 0.02);
+  position: absolute;
+  top: -23px;
+  left: 28px;
+}
+
+.myDropdownMenu .linkItem {
+  display: block;
+  padding: 9px 24px 12px;
+  clear: both;
+  font-weight: 700;
+  color: #000;
+  white-space: nowrap;
+  text-decoration: none;
+  line-height: 19px;
+}
+
+.myDropdownMenu .linkItem:hover,
+.myDropdownMenu .linkItem.active {
+  color: #005bfd;
+}
+
+.msgInfo {
+  box-sizing: border-box;
+  border-radius: 4px;
+  border: 1px solid #ebeef5;
+  position: fixed;
+  left: 50%;
+  top: 20px;
+  transform: translateX(-50%);
+  background-color: #edf2fc;
+  transition: opacity 0.3s, transform 0.4s, top 0.4s;
+  overflow: hidden;
+  padding: 15px 15px 15px 20px;
+  display: flex;
+  align-items: center;
+  z-index: 2003;
+}
+
+.msgSuccess {
+  color: #67c23a;
+  background-color: #f0f9eb;
+  border-color: #e1f3d8;
+}
+
+.msgError {
+  color: #f56c6c;
+  background-color: #fef0f0;
+  border-color: #fde2e2;
+}
+
+.msgInfoDel {
+  opacity: 0;
+  top: 0;
+}
+
+/* 公共样式--end */
+
+/* 头部样式--start */
+.headerWrapper {
+  height: 60px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.88);
+}
+
+.headerWrapper .logoArea {
+  display: flex;
+  align-items: center;
+}
+
+.headerWrapper .logoText {
+  font-size: 20px;
+  font-family: PingFangSC-Semibold, PingFang SC;
+  font-weight: 600;
+  color: #333;
+  line-height: 28px;
+  margin-left: 8px;
+}
+
+.headerWrapper .partIntr {
+  font-size: 20px;
+  line-height: 29px;
+}
+
+.headerWrapper .navWrapper {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* 头部样式--end */
+
+/* 底部样式--start */
+.footerWrapper {
+  padding: 40px 0px;
+  background: #f6f6f6;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.footerWrapper .footerContent {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.footerWrapper .footerContent .footerContentCenter{
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.footerWrapper .footerContent .footerContentLogoBox{
+  display: flex;
+  justify-content: center;
+}
+.footerWrapper .footerContent .footerContentLogoBox .logoBox{
+ width: 720px;
+ display: flex;
+ justify-content: flex-end;
+}
+#isMobileFLag{
+  display: none;
+}
+#noMobileFLag{
+  display: block;
+}
+.footerWrapper .linkAreaWrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 720px;
+}
+
+.footerWrapper .logo {
+  margin-left: 25px;
+  margin-top: -10px;
+  /* display: flex;
+  justify-content: flex-end; */
+}
+
+.footerWrapper .linkArea .title {
+  line-height: 18px;
+  color: #999;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 5px 0px;
+  text-align: right;
+}
+
+.footerWrapper .linkArea .linkItem {
+  font-size: 13px;
+  line-height: 27px;
+  text-decoration: none;
+  color: #333;
+  text-align: right;
+}
+
+.footerWrapper .linkArea .linkItem:hover {
+  color: #005bfd;
+}
+
+.footerWrapper .linkArea + .linkArea {
+  margin-left: 150px;
+}
+
+.footerWrapper .copyrightArea {
+  font-size: 12px;
+  color: #999;
+  line-height: 17px;
+  margin-top: 32px;
+  text-align: center;
+}
+
+.footerWrapper .langSwitcher {
+  border: solid 1px #e7e7e7;
+  padding: 0.5em 0;
+  border-radius: 2px;
+  z-index: 100;
+  overflow: hidden;
+}
+
+.footerWrapper .langSwitcher:hover {
+  box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 20%);
+}
+
+.footerWrapper .langSwitcher ul,
+.footerWrapper .langSwitcher li {
+  position: relative;
+  box-sizing: border-box;
+}
+
+.footerWrapper .langSwitcher ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+
+.footerWrapper .langSwitcher li {
+  display: none;
+  align-items: center;
+  padding: 0px 15px;
+  margin: 0;
+  height: 0;
+  letter-spacing: 1px;
+  transition: opacity, height 0.25s ease;
+  cursor: pointer;
+}
+
+.footerWrapper .langSwitcher li:hover {
+  background-color: rgba(239, 239, 239, 1);
+}
+
+.footerWrapper .langSwitcher li img {
+  width: 21px;
+  height: 14px;
+}
+
+.footerWrapper .langSwitcher li span {
+  display: block;
+  width: 100%;
+  padding: 5px;
+  padding-right: 10px;
+  font-size: 12px;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.footerWrapper .langSwitcher:hover li,
+.footerWrapper .langSwitcher li.active {
+  height: auto;
+  opacity: 1;
+  display: flex;
+}
+
+.footerWrapper .langSwitcher li.active {
+  order: -1;
+}
+
+.footerWrapper .langSwitcher:hover li.active::after {
+  display: block;
+}
+
+.footerWrapper .langSwitcher li.active::after {
+  display: none;
+  content: "";
+  height: 8px;
+  width: 8px;
+  background-color: #08c108;
+  border-radius: 50%;
+  position: absolute;
+  right: 8%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* 底部样式--end */
+
+/* 首页样式--start */
+.homePage .part1 {
+  height: 870px;
+  background: url("../imgs/home_img01.png") top no-repeat;
+  background-size: cover;
+  color: #000000;
+  padding-top: 256px;
+  box-sizing: border-box;
+}
+
+.homePage .part1 .title {
+  font-size: 72px;
+  line-height: 102px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.homePage .part1 .subTitle {
+  font-size: 32px;
+  line-height: 46px;
+  text-align: center;
+}
+
+.homePage .part2 {
+  box-sizing: border-box;
+  width: 1352px;
+  height: 493px;
+  margin: auto;
+  margin-top: -200px;
+  background-color: #fff;
+  border-radius: 28px;
+  padding: 43px 109px;
+  display: flex;
+}
+
+.homePage .part2 .partIntr {
+  width: 35%;
+  box-sizing: border-box;
+  padding: 80px 25px;
+  padding-right: 100px;
+  text-align: right;
+}
+
+.homePage .part2 .imgArea {
+  flex: 1;
+  overflow: hidden;
+}
+
+.homePage .part3 {
+  margin-top: 80px;
+  height: 596px;
+  background: url("../imgs/home_img03.png") top no-repeat;
+  background-size: cover;
+  box-sizing: border-box;
+}
+
+.homePage .part3 .partIntr {
+  margin-left: 60%;
+  text-align: right;
+}
+
+.homePage .part4 {
+  width: 1013px;
+  height: 863px;
+  margin: auto;
+  position: relative;
+  background: url("../imgs/home_img04.png") center no-repeat;
+  background-size: cover;
+}
+
+.homePage .part4 .partIntr {
+  position: absolute;
+  width: 249px;
+  top: 125px;
+  left: 25px;
+  text-align: right;
+}
+
+.homePage .part5 {
+  background: url("../imgs/home_img05.png") center no-repeat;
+  background-size: cover;
+}
+
+.homePage .part5 > div {
+  width: 1013px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 80px 0px;
+}
+
+.homePage .part5 .partIntr {
+  width: 350px;
+  text-align: right;
+}
+
+.homePage .part5 .partIntr.colorWhite .partTitle {
+  text-align: right;
+}
+
+.homePage .part5 .imgArea {
+  width: 400px;
+}
+
+.homePage .part6 {
+  height: 929px;
+  margin: auto;
+  background: url("../imgs/home_img07.png") center no-repeat;
+  background-size: cover;
+}
+
+.homePage .part6 .partIntr {
+  width: 818px;
+  padding-top: 108px;
+  margin: auto;
+  text-align: center;
+}
+.homePage .part6 .partIntr .partTitle,.homePage .part6 .partIntr .partDesc{
+  text-align: center !important;
+}
+.homePage .part7 {
+  margin: auto;
+  background: #000;
+  padding: 100px 0px;
+  justify-content: center;
+  text-align: center;
+  height: 889px;
+  box-sizing: border-box;
+}
+
+.homePage .part7 .img {
+  width: 513px;
+  margin-top: 40px;
+}
+
+/* 首页样式--end */
+
+/* contactUs样式--start */
+
+.contactUsPage .part1 {
+  background: url("../imgs/contactus_img01.png") top no-repeat;
+  background-size: cover;
+  box-sizing: border-box;
+  padding: 150px 30px 38px;
+}
+
+.contactUsPage .part1Content {
+  width: 660px;
+  margin: auto;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.contactUsPage .part1 .partIntr {
+  font-size: 18px;
+}
+
+.contactUsPage .part1 .partIntr .partDesc {
+  font-weight: 700;
+}
+
+.contactUsPage .part1 .partIntr .email {
+  line-height: 25px;
+  color: #000;
+  margin-top: 9px;
+  opacity: 0.5;
+}
+
+.contactUsPage .fromArea {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.contactUsPage .fromTitle {
+  font-size: 18px;
+  font-weight: 700;
+  margin-top: 30px;
+}
+
+.contactUsPage .fromArea .row {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+}
+
+.contactUsPage .fromArea .column2 {
+  width: 48%;
+}
+
+.contactUsPage .fromArea .enterCodeArea {
+  display: flex;
+  /* justify-content: flex-end; */
+}
+
+.contactUsPage .fromArea .enterCode {
+  display: flex;
+  align-items: flex-end;
+  cursor: pointer;
+  margin-right: 40px;
+}
+
+.contactUsPage .fromArea .enterCode img {
+  width: 142px;
+  height: 48px;
+}
+
+.contactUsPage .biddingBtn {
+  width: max-content;
+  height: 48px;
+  background: #0053ff;
+  border-radius: 2px;
+  margin-top: 20px;
+  padding: 0 12px;
+  font-size: 14px;
+  text-align: center;
+  color: #fff;
+  cursor: pointer;
+  box-sizing: border-box;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.contactUsPage .biddingBtn span {
+  margin-left: 6px;
+  margin-right: 16px;
+}
+.contactUsPage .wx-ic {
+  width: 24px;
+  height: 24px;
+}
+.contactUsPage .submitBtn {
+  width: 400px;
+  padding: 14px;
+  background: #005bfd;
+  border-radius: 4px;
+  text-align: center;
+  color: #fff;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.contactUsPage .privacyArea {
+  width: 400px;
+  margin-top: 12px;
+  font-size: 12px;
+}
+
+.contactUsPage .privacyArea a{
+  color: #005BFD;
+}
+
+.contactUsPage .formMsgError {
+  text-align: center;
+  line-height: 38px;
+  color: #f56c6c;
+}
+
+.contactUsPage .hidden {
+  display: none;
+}
+
+.formItem {
+  margin-top: 19px;
+}
+
+.formItem .formLabel {
+  color: #000;
+  opacity: 0.5;
+}
+
+.formItem .formContent {
+  margin-top: 6px;
+  width: 100%;
+  background: #ffffff;
+  border-radius: 2px;
+  border: 1px solid #e6e6e6;
+  padding: 12px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.formItem .formContent:focus-visible {
+  outline: none;
+}
+
+/* contactUs样式--end */
+
+/* privacy样式--start */
+.privacyPage .part1 {
+  background: #fcfcfe;
+  box-sizing: border-box;
+  padding: 130px 30px;
+}
+
+.privacyPage .part1Content {
+  width: 1020px;
+  margin: auto;
+}
+
+.privacyPage .privacyContent {
+  font-size: 18px;
+  color: #000000;
+  opacity: 0.5;
+  line-height: 25px;
+  margin-top: 30px;
+}
+
+.privacyPage .section {
+  margin-bottom: 25px;
+}
+
+/* privacy样式--end */
+
+/* partners样式--start */
+
+.partnersPage .part1 {
+  height: 640px;
+  background: url("../imgs/partners_img01.png") top no-repeat;
+  background-size: cover;
+  box-sizing: border-box;
+}
+
+.partnersPage .part1 .partIntr {
+  width: 478px;
+  padding-top: 115px;
+  margin: auto;
+  text-align: center;
+}
+
+.partnersPage .part1 .partnersLogo {
+  margin: auto;
+  margin-top: 107px;
+  display: flex;
+  width: 1200px;
+  justify-content: space-around;
+}
+
+/* partners样式--end */
+
+/* camera样式--start */
+.cameraPage .part1 {
+  height: 768px;
+  margin: auto;
+  background: url("../imgs/camera_img01.png") center no-repeat;
+  background-size: cover;
+}
+
+.cameraPage .part1 .partIntr {
+  width: 780px;
+  padding-top: 104px;
+  margin: auto;
+  text-align: center;
+}
+
+.cameraPage .part2 {
+  height: 794px;
+  background: url("../imgs/camera_img02.png") top no-repeat;
+  background-size: cover;
+  box-sizing: border-box;
+}
+
+.cameraPage .part2 .partIntr {
+  width: 360px;
+  margin-left: 60%;
+  text-align: right;
+}
+
+.cameraPage .part3 {
+  margin: auto;
+  background: #fff;
+}
+
+.cameraPage .part3 > div,
+.cameraPage .part5 > div {
+  width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cameraPage .part3 .partIntr {
+  width: 520px;
+  text-align: right;
+}
+
+.cameraPage .part3 .imgArea {
+  width: 640px;
+}
+
+.cameraPage .part4 {
+  margin: auto;
+  text-align: center;
+}
+
+.cameraPage .part4 .partIntr {
+  padding-top: 130px;
+  width: 846px;
+}
+
+.cameraPage .part4 .imgArea {
+  width: 1000px;
+}
+
+.cameraPage .part5 {
+  height: 870px;
+  background: #fff url("../imgs/camera_img05.png") top no-repeat;
+  background-size: cover;
+  box-sizing: border-box;
+}
+
+.cameraPage .part5 .partIntr {
+  width: 450px;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.cameraPage .part5 .partIntr .partDesc {
+  width: 370px;
+}
+
+/* camera样式--end */
+
+/* performance样式--start */
+.performancePage .part1 {
+  height: 768px;
+  margin: auto;
+  background: url("../imgs/performance_img01.png") center no-repeat;
+  background-size: cover;
+}
+
+.performancePage .part1 .partIntr {
+  width: 852px;
+  padding-top: 155px;
+  margin: auto;
+  text-align: center;
+}
+
+.performancePage .part2 {
+  height: 768px;
+  margin: auto;
+  background: url("../imgs/performance_img02.png") center no-repeat;
+  background-size: cover;
+}
+
+.performancePage .part2 .partIntr {
+  width: 852px;
+  padding-top: 114px;
+  margin: auto;
+  text-align: center;
+}
+
+.performancePage .part3 {
+  margin: auto;
+  background: #25293e;
+}
+
+.performancePage .part3 > div {
+  width: 1180px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.performancePage .part3 .partIntr {
+  width: 420px;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.performancePage .part3 .partIntr.colorWhite .partTitle {
+  text-align: right;
+}
+.performancePage .part3 .partIntr.colorWhite .partDesc{
+  width: 380px;
+  margin-top: 43px;
+}
+
+.performancePage .part3 .imgArea {
+  width: 620px;
+}
+
+/* performance样式--end */
+
+/* smartApp样式--start */
+
+.smartAppPage .part1 {
+  background-color: #fff;
+}
+
+.smartAppPage .part1 > div {
+  width: 1180px;
+  padding: 100px 0px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.smartAppPage .part1 .partIntr,.smartAppPage .part2 .partIntr {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.smartAppPage .part1 .partIntr .partDesc {
+  width: 505px;
+  margin-top: 43px;
+  text-align: right;
+}
+
+.smartAppPage .part2 > div {
+  width: 1300px;
+  margin: auto;
+  position: relative;
+}
+
+.smartAppPage .part2 .imgArea {
+  width: 936px;
+}
+
+.smartAppPage .part2 .partIntr {
+  width: 419px;
+  position: absolute;
+  right: 110px;
+  /* top: 170px; */
+  top: 145px;
+}
+
+.smartAppPage .part2 .partIntr .partDesc {
+  width: 365px;
+  text-align: right;
+}
+
+/* smartApp样式--end */
+
+/* liteApp样式--start */
+.liteAppPage .container .partWrapper {
+  margin-left: 20%;
+  height: 100%;
+  padding-top: 60px;
+}
+
+.liteAppPage .partIntr .partSubTitle {
+  color: #000;
+  font-weight: 700;
+  margin-top: 24px;
+  margin-bottom: 10px;
+}
+
+.liteAppPage .part1 {
+  height: 772px;
+  padding: 50px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.liteAppPage .part1 .imgArea {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.liteAppPage .part1 .partIntr {
+  padding-top: 213px;
+  width: 355px;
+  text-align: right;
+}
+
+.liteAppPage .part1 .imgArea {
+  width: 60%;
+}
+
+.liteAppPage .part2 {
+  height: 787px;
+  box-sizing: border-box;
+  position: relative;
+  background-color: #353535;
+}
+
+.liteAppPage .part2 > div {
+  position: relative;
+}
+
+.liteAppPage .part2 .partIntr {
+  width: 415px;
+  position: absolute;
+  top: 157px;
+  text-align: right;
+}
+
+.liteAppPage .part2 .imgArea {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.liteAppPage .part3 {
+  background-color: #fff;
+}
+
+.liteAppPage .part3 > div,
+.liteAppPage .part4 > div,
+.liteAppPage .part5 > div {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.liteAppPage .part3 .partIntr {
+  width: 425px;
+  margin-right: 165px;
+  text-align: right;
+}
+
+.liteAppPage .part3 .imgArea {
+  padding-top: 100px;
+  width: 381px;
+}
+
+.liteAppPage .part4 > div,.liteAppPage .part5 > div{
+  width: 1080px;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+.liteAppPage .part4 .partIntr {
+  width: 547px;
+  margin-left: 84px;
+  text-align: right;
+}
+
+.liteAppPage .part4 .imgArea {
+  width: 381px;
+}
+
+.liteAppPage .part5 {
+  background: linear-gradient(180deg, #c4efff 0%, #ffffff 100%, #ffffff 100%);
+}
+
+.liteAppPage .part5 .partIntr {
+  /* width: 547px; */
+  width: 555px;
+  margin-left: 84px;
+  text-align: right;
+}
+
+.liteAppPage .part5 .imgArea {
+  width: 503px;
+  padding: 100px 0px;
+}
+
+/* liteApp样式--end */
+
+/* darkMode样式--start */
+
+.darkModePage .part1 {
+  background: #353535;
+  margin: auto;
+  margin-top: -60px;
+}
+
+.darkModePage .part1 > div {
+  width: 1080px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.darkModePage .part1 .partIntr {
+  width: 358px;
+  text-align: right;
+}
+
+.darkModePage .part1 .imgArea {
+  width: 618px;
+}
+
+/* darkMode样式--end */
+
+@media only screen and (max-width: 768px) {
+  /* 公共样式--start */
+  .cc {
+    width: auto;
+  }
+
+  .mobile {
+    display: block;
+  }
+
+  .pc {
+    display: none;
+  }
+
+  .page {
+    min-width: auto;
+  }
+
+  .partIntr {
+    font-size: 14px;
+    line-height: 19px;
+  }
+
+  .partIntr .partTitle {
+    font-size: 24px;
+    line-height: 34px;
+    margin-bottom: 4px;
+  }
+
+  .partIntr .partTitle:before {
+    display: inline-block;
+    width: 35px;
+    height: 19px;
+    content: "";
+    top: -30px;
+  }
+
+  .partIntr .partDesc {
+    opacity: 0.7;
+  }
+
+  .logo {
+    width: 40px;
+  }
+
+  /* 公共样式--end */
+
+  /* 头部样式--start */
+  .headerWrapper {
+    height: 44px;
+    background-color: #fff;
+    padding: 0px 21px;
+    box-sizing: border-box;
+  }
+
+  .headerWrapper .navBtn {
+    width: 22px;
+    height: 22px;
+  }
+
+  /* 头部样式--end */
+
+  /* 底部样式--start */
+  .footerWrapper .footerContent {
+    width: auto;
+    padding: 0px 20px;
+    display: block;
+  }
+  .footerWrapper .logo {
+    margin-right: 55px;
+  }
+  .footerWrapper .linkAreaWrapper {
+    justify-content: flex-start;
+    margin-top: 0px;
+    width: 100%;
+  }
+
+  .footerWrapper .linkArea + .linkArea {
+    margin-left: 40px;
+  }
+
+  .footerWrapper .copyrightArea {
+    margin-top: 16px;
+  }
+  #noMobileFLag{
+    display: none;
+  }
+  #isMobileFLag{
+    display: block;
+  }
+  .footerWrapper .footerContent .footerContentLogoBox .logoBox{
+    width: auto;
+    display: flex;
+    justify-content: flex-end;
+   }
+  /* 底部样式--end */
+
+  /* 首页样式--start */
+  .homePage .part1 {
+    height: 530px;
+    padding-top: 80px;
+    box-sizing: border-box;
+    align-items: center;
+  }
+
+  .homePage .part1 .title {
+    font-size: 32px;
+    line-height: 46px;
+    font-weight: 700;
+    text-align: center;
+    padding: 0px 10px;
+  }
+
+  .homePage .part1 .subTitle {
+    font-size: 15px;
+    line-height: 22px;
+    text-align: center;
+    width: 242px;
+    margin-top: 5px;
+  }
+
+  .homePage .part2 {
+    box-sizing: border-box;
+    width: 318px;
+    height: 412px;
+    border-radius: 14px;
+    margin-top: -250px;
+    padding: 40px 22px;
+    flex-direction: column;
+  }
+
+  .homePage .part2 .partIntr {
+    box-sizing: border-box;
+    padding: 30px 22px;
+    width: auto;
+  }
+
+  .homePage .part3 {
+    margin-top: 40px;
+    height: 310px;
+    background-position: 32% top;
+    position: relative;
+  }
+
+  .homePage .part3 .partIntr {
+    transform: translateY(-35px);
+    padding-right: 10px;
+    margin: auto;
+    width: 160px;
+    position: absolute;
+    right: 0;
+  }
+
+  .homePage .part3 .partIntr .partDesc {
+    opacity: 0.8;
+  }
+
+  .homePage .part4 {
+    width: auto;
+    height: auto;
+    box-sizing: border-box;
+    position: relative;
+    background: #fff;
+    padding: 59px 18px 40px 32px;
+  }
+
+  .homePage .part4 .partIntr {
+    position: relative;
+    width: 200px;
+    top: 0;
+    padding-left: 20px;
+  }
+
+  .homePage .part4 .imgArea {
+    width: 325px;
+  }
+
+  .homePage .part5 > div {
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 59px 50px 32px;
+  }
+
+  .homePage .part5 .partIntr {
+    width: auto;
+    margin-bottom: 28px;
+    padding-left: 12px;
+  }
+
+  .homePage .part5 .imgArea {
+    width: auto;
+  }
+
+  .homePage .part6 {
+    height: 463px;
+    padding: 65px 26px 0px;
+    background: url("../imgs/home_img07_mb.png") center no-repeat;
+    background-size: cover;
+    box-sizing: border-box;
+  }
+
+  .homePage .part6 .partIntr {
+    padding: 0;
+    width: auto;
+    margin: auto;
+  }
+
+  .homePage .part7 {
+    padding: 90px 19px 60px;
+    text-align: center;
+    height: auto;
+  }
+
+  .homePage .part7 .img {
+    width: 85%;
+    margin-top: 29px;
+  }
+
+  /* 首页样式--end */
+
+  /* contactUs样式--start */
+  .contactUsPage .part1 {
+    padding: 140px 30px 38px;
+  }
+
+  .contactUsPage .part1Content {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .contactUsPage .part1 .partIntr {
+    font-size: 14px;
+    margin: auto;
+    width: auto;
+  }
+
+  .contactUsPage .fromArea .row {
+    display: block;
+  }
+
+  .contactUsPage .fromArea .column2 {
+    width: 100%;
+  }
+
+  .contactUsPage .fromArea .enterCodeArea {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .contactUsPage .fromArea .enterCodeArea .column2 {
+    flex: 1;
+    padding-right: 12px;
+  }
+
+  .contactUsPage .biddingBtn {
+    width: 100%;
+  }
+  .contactUsPage .submitBtn {
+    width: 100%;
+  }
+
+  .contactUsPage .privacyArea {
+    width: 100%;
+  }
+
+  /* contactUs样式--end */
+
+  /* privacy样式--start */
+  .privacyPage .part1 {
+    background: #fcfcfe;
+    box-sizing: border-box;
+    padding: 59px 30px 24px;
+  }
+
+  .privacyPage .part1Content {
+    width: auto;
+  }
+
+  .privacyPage .privacyContent {
+    font-size: 14px;
+    line-height: 19px;
+    margin-top: 4px;
+  }
+
+  .privacyPage .section {
+    margin-bottom: 19px;
+  }
+
+  /* privacy样式--end */
+
+  /* partners样式--start */
+  .partnersPage .part1 {
+    height: auto;
+  }
+
+  .partnersPage .part1 .partIntr {
+    width: auto;
+    padding-top: 60px;
+  }
+
+  .partnersPage .part1 .partnersLogo {
+    margin-top: 50px;
+    padding-bottom: 60px;
+    display: flex;
+    width: auto;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .partnersPage .part1 .partnersLogo > div {
+    box-sizing: border-box;
+    width: 48%;
+    padding: 10px;
+  }
+
+  /* partners样式--end */
+
+  /* camera样式--start */
+  .cameraPage .partIntr.colorWhite .partDesc {
+    opacity: 1;
+  }
+
+  .cameraPage .part1 {
+    height: 457px;
+    background: url("../imgs/camera_img01_mb.png") center no-repeat;
+    background-size: cover;
+  }
+
+  .cameraPage .part1 .partIntr {
+    width: 318px;
+    padding-top: 72px;
+  }
+
+  .cameraPage .part2 {
+    height: 567px;
+    background: url("../imgs/camera_img02_mb.png") top no-repeat;
+    background-size: contain;
+    justify-content: flex-start;
+    margin: 40px 20px;
+  }
+
+  .cameraPage .part2 .partIntr {
+    width: 260px;
+    margin: 64px auto 0px;
+  }
+
+  .cameraPage .part3 {
+    height: auto;
+    margin: auto;
+    background: #fff;
+  }
+
+  .cameraPage .part3 > div,
+  .cameraPage .part5 > div {
+    width: auto;
+    margin: auto;
+    padding: 0px 50px;
+    flex-direction: column;
+  }
+
+  .cameraPage .part3 .partIntr,
+  .cameraPage .part4 .partIntr {
+    width: auto;
+    padding-top: 80px;
+  }
+
+  .cameraPage .part3 .imgArea {
+    width: auto;
+  }
+
+  .cameraPage .part4 {
+    text-align: center;
+    padding: 0px 20px;
+  }
+
+  .cameraPage .part4 .imgArea {
+    width: auto;
+    margin-top: 26px;
+  }
+
+  .cameraPage .part5 {
+    height: auto;
+    background: #fff;
+  }
+
+  .cameraPage .part5 > div {
+    padding: 0px;
+  }
+
+  .cameraPage .part5 .partIntr {
+    width: auto;
+    padding: 80px 50px 20px;
+  }
+
+  .cameraPage .part5 .partIntr .partDesc {
+    width: auto;
+  }
+
+  .cameraPage .part5 .imgArea {
+    width: 100%;
+  }
+
+  /* camera样式--end */
+
+  /* performance样式--start */
+  .performancePage .part1 {
+    height: 460px;
+    background: url("../imgs/performance_img01_mb.png") center no-repeat;
+    background-size: cover;
+  }
+
+  .performancePage .part1 .partIntr {
+    width: auto;
+    padding: 60px 25px 20px;
+  }
+
+  .performancePage .part2 {
+    height: 477px;
+    margin: auto;
+    background: url("../imgs/performance_img02_mb.png") center no-repeat;
+    background-size: cover;
+  }
+
+  .performancePage .part2 .partIntr {
+    width: auto;
+    padding: 70px 25px 20px;
+  }
+
+  .performancePage .part3 {
+    margin: auto;
+    background: #25293e;
+  }
+
+  .performancePage .part3 > div {
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 60px 25px;
+  }
+
+  .performancePage .part3 .partIntr {
+    width: auto;
+    padding: 10px 0px 0px 0px;
+    margin-right: 20px;
+    /* padding: 10px 28px 0px; */
+  }
+  .performancePage .part3 .partIntr.colorWhite .partDesc{
+    width: 350px;
+    margin-top: 43px;
+  }
+  
+
+  .performancePage .part3 .imgArea {
+    width: auto;
+  }
+
+  /* performance样式--end */
+
+  /* smartApp样式--start */
+  .smartAppPage .partIntr {
+    padding: 60px 50px 0px;
+  }
+
+  .smartAppPage .part1 > div,
+  .smartAppPage .part2 > div {
+    width: auto;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+  }
+
+  .smartAppPage .part1 .imgArea {
+    padding: 10px 20px;
+    width: auto;
+  }
+
+  .smartAppPage .part1 .partIntr {
+    width: auto;
+  }
+
+  .smartAppPage .part1 .partIntr .partDesc,
+  .smartAppPage .part2 .partIntr .partDesc {
+    width: auto;
+  }
+
+  .smartAppPage .part2 > div {
+    flex-direction: column-reverse;
+  }
+
+  .smartAppPage .part2 .imgArea {
+    padding: 0px;
+    width: auto;
+  }
+
+  .smartAppPage .part2 .partIntr {
+    width: auto;
+    position: relative;
+    right: 0;
+    top: 0;
+  }
+
+  /* smartApp样式--end */
+
+  /* liteApp样式--start */
+  .liteAppPage .container .partWrapper {
+    margin-left: 0;
+    padding-top: 0px;
+  }
+
+  .liteAppPage .partIntr {
+    padding: 80px 50px 32px;
+  }
+
+  .liteAppPage .part1 {
+    /* height: 502px; */
+    height: auto;
+    padding: 0px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+  .liteAppPage .part1 > div {
+    position: relative;
+  }
+  .liteAppPage .part1 .imgArea {
+    left: 0;
+  }
+
+  .liteAppPage .part1 .partIntr {
+    padding-top: 60px;
+    width: auto;
+    /* position: absolute; */
+    position: relative;
+    z-index: 9;
+  }
+
+  .liteAppPage .part1 .imgArea {
+    width: auto;
+    min-width: auto;
+    position: relative;
+  }
+
+  .liteAppPage .part2 {
+    height: auto;
+  }
+
+  .liteAppPage .part2 > div {
+    position: relative;
+  }
+
+  .liteAppPage .part2 .partIntr {
+    width: auto;
+    position: relative;
+    top: 0px;
+  }
+
+  .liteAppPage .part2 .imgArea {
+    position: relative;
+  }
+
+  .liteAppPage .part3 > div,
+  .liteAppPage .part5 > div {
+    flex-direction: column;
+  }
+
+  .liteAppPage .part3 .partIntr,
+  .liteAppPage .part4 .partIntr,
+  .liteAppPage .part5 .partIntr {
+    width: auto;
+    margin: auto;
+  }
+
+  .liteAppPage .part3 .imgArea,
+  .liteAppPage .part4 .imgArea {
+    width: auto;
+    padding: 0px 60px;
+  }
+  .liteAppPage .part4 > div,.liteAppPage .part5 > div{
+    width: auto;
+  }
+  .liteAppPage .part4 > div {
+    flex-direction: column-reverse;
+  }
+
+  .liteAppPage .part5 .imgArea {
+    width: auto;
+    padding: 0px 60px 40px;
+  }
+
+  /* liteApp样式--end */
+
+  /* darkMode样式--start */
+  .darkModePage .part1 {
+    margin-top: 0;
+  }
+
+  .darkModePage .part1 > div {
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px 25px 20px;
+  }
+
+  .darkModePage .part1 .partIntr {
+    width: auto;
+    padding: 0px 25px 12px;
+  }
+
+  .darkModePage .part1 .imgArea {
+    width: auto;
+  }
+
+  /* darkMode样式--end */
+}
+
+@media screen and (min-width: 2000px) {
+  /* liteApp样式--start */
+  .liteAppPage .container .partWrapper {
+    margin-left: 25%;
+  }
+
+  /* liteApp样式--end */
+}

@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>分身有术</title>
+  <link rel="shortcut icon" href="favicon.ico" />
+  <link rel="stylesheet" href="css/animate.min.css" />
+  <link rel="stylesheet" href="css/swiper.min.css">
+  <link rel="stylesheet" href="css/layui.css">
+	<!--<script src="https://cdn.bootcss.com/vConsole/3.3.4/vconsole.min.js"></script>
+  <script>
+    new VConsole();
+  </script>-->
+  <style>
+    html, body {
+      position: relative;
+      height: 100%;
+    }
+    body {
+      background: #f8fbfd;
+      font-family: "微软雅黑" ,Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 12px;
+      color:#000;
+      margin: 0;
+      padding: 0;
+    }
+    .swiper-container {
+      width: 100%;
+      height: 100%;
+    }
+    .swiper-slide {
+      text-align: center;
+      font-size: 16px;
+      background: #f8fbfd;
+
+      /* Center slide text vertically */
+      /* display: -webkit-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex; */
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+    }
+
+    .arrow{
+      position: fixed;
+      bottom:1.5rem;
+      width:100%;
+      z-index: 9999;
+      text-align: center;
+    }
+    .gradient{
+        background: -moz-linear-gradient(top, #16e691 0%, #1acbb1 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#16e691), color-stop(100%,#1acbb1));
+        background: -webkit-linear-gradient(top, #16e691 0%,#1acbb1 100%);
+        background: -o-linear-gradient(top, #16e691 0%,#1acbb1 100%);
+        background: -ms-linear-gradient(top, #16e691 0%,#1acbb1 100%);
+        background: linear-gradient(to bottom, #16e691 0%,#1acbb1 100%);
+    }
+    .img1-1{
+      width:70%;
+      margin-top:16%;
+      margin-bottom: 8%;
+    }
+    .img-arrow{
+      width:10%;
+    }
+    .btn{
+      display: block;
+      width:80%;
+      background: #fff;
+      color: #0ae59c;
+      -moz-border-radius: 8px; 
+      -webkit-border-radius: 8px;
+      border-radius: 8px; 
+      height:3rem;
+      line-height: 3rem;
+      margin:0 auto;
+      margin-top:1rem;
+    }
+    .p1_p{
+      color:#fff;
+      font-weight: 100;
+      font-size:12px;
+      width:80%;
+      margin:0 auto;
+      margin-top:12%;
+    }
+    .img2-1{
+      width:70%;
+      margin-top:24%;
+      margin-bottom: 8%;
+    }
+    .p2_p{
+      color:#484f56;
+      font-weight: 100;
+      font-size:14px;
+      width:80%;
+      margin:0 auto;
+      margin-top:3%;
+    }
+    .swiper-container-vertical>.swiper-pagination-bullets{
+      display: none; /*翻页圆点隐藏*/
+    }
+    @-webkit-keyframes rightan
+    {
+
+      from
+      {
+          bottom: 0%;
+          opacity: 0;
+      }
+      to
+      {
+          bottom: 5%;
+          opacity: 1;
+      }
+    }
+    .rightan
+    {
+    -webkit-animation: rightan 1s infinite;
+    -webkit-animation-fill-mode: both;
+    }
+    @-webkit-keyframes go{0%{-webkit-transform:translate(0,0)}50%{-webkit-transform:translate(0,-10px)}100%{-webkit-transform:translate(0,0)}}
+    .go{
+      bottom: 2%;
+      -webkit-animation: go 1.5s linear 0s infinite;
+      position: absolute;
+      width: 100%;
+      overflow: hidden;
+      z-index: 99999;
+      text-align: center;
+    }
+    .go img{
+      width:24px;
+    }
+    .backtop{
+      text-align:right;
+      right:5%;
+    }
+    .backtop img{
+      width:50px;
+    }
+
+    .mask-loading {
+    	position: fixed;
+    	left: 0;
+    	top: 0;
+    	width: 100%;
+    	text-align: center;
+	    height: 100%;
+	    background-color: rgba(0,0,0,0.5);
+	    display: none;
+	    z-index: 99999;
+    }
+    .mask-loading > div {
+    	text-align: right;
+    }
+    .mask-loading .mask-arrow {
+    	padding-top: 20px;
+    	width: 18%;
+    	margin-right: 5%;
+    } 	
+    .mask-loading .mask-text {
+    	width: 80%;
+    	margin-top: -7px;
+    }
+    .tl{
+      text-align: left;
+    }
+    .disfr{
+      display: flex;
+    }
+    .fc{
+      display: flex;
+      flex-direction: column;
+    }
+    .jsb{
+      justify-content: space-between;
+    }
+    .ac{
+      align-items: center;
+    }
+    .flex1{
+      flex:1;
+    }
+    .history_title{
+      padding:0 6%;
+      font-size: 16px;
+      height:56px;
+      line-height: 56px;
+      font-family: PingFang SC;
+      font-weight: 500;
+      color: #202326;
+      /* background:white; */
+    }
+    .downloadPane{
+      width:88%;
+      margin:0 auto;
+      margin-bottom:24px;
+    }
+    .downloadLogo{
+      width:33px;
+      height:34px;
+      margin-right:8px;
+    }
+    .downBtn{
+      width: 56px;
+      height: 25px;
+      background: #34DDA5;
+      border-radius: 13px;
+      font-size: 11px;
+      font-family: Source Han Sans CN;
+      font-weight: 400;
+      color: #FFFFFF;
+      line-height: 25px;
+      cursor: pointer;
+    }
+    .edition_num{
+      height: 13px;
+      font-size: 13px;
+      font-family: PingFang SC;
+      font-weight: bold;
+      color: #484F56;
+      margin-bottom:6px;
+    }
+    .edition_info{
+      font-size: 10px;
+      font-family: PingFang SC;
+      font-weight: 400;
+      color: #484F56;
+    }
+    .edition_size{
+      margin-right:16px;
+    }
+    .downList{
+      overflow-y: scroll;
+      padding-bottom: 50px;
+    }
+
+    /*小屏幕*/
+    @media only screen and (max-width: 350px){
+      .p1_p{
+        margin-top:6%;
+      }
+    }
+  </style>
+
+</head>
+<body>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide page01 gradient">
+              <img class="img1-1" src="images/p1_img01_1_13.png"/>
+              <a class="btn" onclick="downloadHandle('pro');">下载Pro版</a>
+              <a class="btn" onclick="downloadHandle('base64');">下载32位兼容插件</a>
+              <p class="p1_p">温馨提示：下载Pro版时，分身有术账号通用，升级Pro版会员特权服务
+                  和会员期限不受影响。</p>
+              <div class="mask-loading" onclick="closeMask()">
+                  <div id="">
+                    <img class="mask-arrow" src="images/weixinh5_arrow.png"/>
+                  </div>
+                  <img class="mask-text" src="images/weixinh5_main.png"/>
+                  <!--<img src="image/live_weixin.png"/>-->
+              </div>
+              <div class="go"><img src="images/arrow.png" class="ani" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.5s" swiper-animate-delay="8.7s"></div>
+            </div>
+            <div class="swiper-slide page02">
+              <img class="img2-1" src="images/p2_img01.png"/>
+              <p class="p2_p">
+                微信、QQ无限多开，任性聊、放肆撩
+                薅羊毛、养小号，电商、游戏好神器
+              </p>
+              <div class="go"><img src="images/arrow2.png" class="ani" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.5s" swiper-animate-delay="8.7s"></div>
+            </div>
+            <div class="swiper-slide page03">
+              <img class="img2-1" src="images/p3_img01.png"/>
+              <p class="p2_p">
+                ADocker引擎，不篡改官方APP，安全稳定
+              </p>
+              <div class="go"><img src="images/arrow2.png" class="ani" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.5s" swiper-animate-delay="8.7s"></div>
+            </div>
+            <!-- <div class="swiper-slide page04">
+              <img class="img2-1" src="images/p4_img01_1_13.png"/>
+              <p class="p2_p">
+                手机品牌随意换，打卡定位随心行
+              </p>
+              <div class="go"><img src="images/arrow2.png" class="ani" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.5s" swiper-animate-delay="8.7s"></div>
+            </div>
+            <div class="swiper-slide page05">
+              <img class="img2-1" src="images/p5_img01.png"/>
+              <p class="p2_p">
+                应用锁、图标伪装，更贴心的隐私管家
+              </p>
+              <div class="go"><img src="images/arrow2.png" class="ani" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.5s" swiper-animate-delay="8.7s"></div>
+            </div>
+            <div class="swiper-slide page06">
+              <img class="img2-1" src="images/p6_img01.png"/>
+              <p class="p2_p">
+                微信、QQ抢红包快人一步
+              </p>
+              <div class="go"><img src="images/arrow2.png" class="ani" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.5s" swiper-animate-delay="8.7s"></div>
+            </div> -->
+            <div class="swiper-slide page07 fc" >
+              <p class="tl  history_title" style="width:88%">历史版本</p>
+              <div class="downList flex1 noscroll" style="width:100%" id="downLoadPage">
+
+              </div>
+              <div class="go backtop" onclick="backHome()"><img src="images/backtop.png" class="ani" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.5s" swiper-animate-delay="8.7s"></div>
+            </div>
+            
+            
+        </div>
+        
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+    </div>
+
+<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+<script src="layui.js"></script>
+<script src="swiper.min.js"></script>
+<script>
+    getAppApkVersion();
+    getHistory()
+
+
+    var swiper = new Swiper('.swiper-container', {
+      direction: 'vertical',
+      noSwipingClass : 'noscroll', 
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      touchStartPreventDefault : false,
+      resistanceRatio: 0, // 滑到第一页和最后一页，不能再往下拉和往上拉
+        onSlideChangeEnd: function(swiper){
+        console.log(swiper.activeIndex); //切换结束时，告诉我现在是第几个slide
+      },
+    });
+
+    function getHistory(){
+      $.ajax({
+        type: "get",
+        url: 'https://api-spare.oo523.com:8060/apk/all/history',
+        success: function (res) {
+          if(res.status==200){
+            let list=res.data.list
+          $(function () {
+            $.each(list, function (index, item) { //遍历这个数组，调用匿名函数进行处理
+              let url=`https://h5spare.oo523.com/${item.url}`
+              var html = $(`<div class="disfr jsb ac downloadPane">
+                    <div class="info disfr tl">
+                      <img class="downloadLogo" src="images/web/download_logo.png" alt="">
+                      <div>
+                        <p class="edition_num">分身有术pro${item.version}</p>
+                        <p class="edition_info">
+                          <span class="edition_size">${item.fileSize}</span>
+                          <span class="edition_date">${item.publishDate}</span>
+                        </p>
+                      </div>
+                    </div>
+                    <a class="downBtn" href="${url}" download="" target="_self">下载</a>
+                  </div>`); //创建一个节点
+              $("#downLoadPage").append(html); //将这个节点加入到table中
+            })
+          })
+          }
+          
+        },
+        error: function (error) {
+          console.log(error);
+        }
+      });
+    }
+
+
+    // 获取最新的apk包
+    function getAppApkVersion() {
+//  	var url = "https://api-location.yy845.com/apk/url"; // 最新
+ 	var url = "https://api-spare.oo523.com:8060/apk/url"; // 正式服
+    	// var url = "https://spare-api.freemeos.com/apk/url"; // 正式服
+//    var url = "http://192.168.40.206:8060/apk/url"; // 测试服
+      $.ajax({
+        type: "get",
+        url: url,
+        success: function (res) {
+          window.apkUrl = res;
+//        console.log(res, "获取最新的apk包")
+        },
+        error: function (error) {
+          console.log(error, "error");
+        }
+      });
+    };
+
+
+  // 点击下载
+	function downloadHandle(type) {
+    console.log(type, window.apkUrl, "点击下载");
+    //  微信引导页
+      if (is_weixn()) {
+      $(".mask-loading").show();
+        return
+      }
+      var url='';
+  		if(type=="pro"){
+        url = window.apkUrl.pro_url;
+      }else{
+        url = window.apkUrl.plugin_url;
+      }
+      window.location.href = url;
+    }
+
+  // 关闭弹框引导页
+	function closeMask() {
+		$(".mask-loading").hide();
+	};
+	// 判断是否是微信
+	function is_weixn() {  
+    var ua = navigator.userAgent.toLowerCase();  
+    if(ua.match(/MicroMessenger/i)=="micromessenger") {  
+        return true;  
+    } else {  
+        return false;  
+    }  
+	} 
+
+  function backHome() {
+    console.log("返回第一页")
+    swiper.slideTo(0, 0, false);
+  }
+
+</script>
+</body>
+</html>

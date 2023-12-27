@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>最美万年历</title>
+  <link rel="stylesheet" href="./index.css">
+  <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+</head>
+
+<body>
+  <div class="page">
+    <div class="header" id="download"></div>
+    <div class="contentWrapper">
+      <video width="100%" height="100%" src="./imgs/video.mp4" id="myVideo" poster="./imgs/poster.jpg" preload="auto" webkit-playsinline='true' playsinline='true'>
+      </video>
+      <div id="playVideo" class="playVideo" @onClick="myVideoPlay()">
+        <div class="playIcon" id="playIcon"></div>
+      </div>
+      <!--播放|暂停-->
+      <div class="userBlessing" id="userBlessing">
+        <div class="userInfo">
+          <div class="infoTitle">
+            <div>
+              <div class="avatarImg"><img id="userAvatar" src="./imgs/img_avatar_default@2x.png" alt=""></div>
+              <span id="nickName"></span>
+            </div>
+            <div class="likeArea">
+              <img src="./imgs/popout_icon_like_s@2x.png" alt="">
+              <span id="praiseNum">0</span>
+            </div>
+          </div>
+          <div class="infoDesc" id="infoDesc">
+            身体健康，万事胜意
+          </div>
+        </div>
+      </div>
+    </div>
+ 
+  </div>
+  <script>
+    const baseUrl = "https://zmcalender-api.colaapp.cn";// 后端接口地址
+    function myVideoPlay() {
+      const myVideo = document.getElementById("myVideo");
+      if (myVideo.paused) {
+        myVideo.play();
+      } else {
+        myVideo.pause();
+      }
+    }
+    function myVideoStart(){
+      $("#userBlessing").addClass("hide")
+      $("#playIcon").addClass("hideIcon")
+    }
+    function myVideoPause(){
+      $("#userBlessing").removeClass("hide")
+      $("#playIcon").removeClass("hideIcon")
+    }
+    function downloadApp() {
+      const u = navigator.userAgent;
+      const isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+      const fixedIosUrl = "https://itunes.apple.com/cn/app/id1527736495";
+      const fixedAndroidUrl = "https://zmcalender.colaapp.cn/share/index.html";
+      window.location.href=fixedAndroidUrl
+      // if (isiOS) {
+      //   return window.location.href = fixedIosUrl
+      // } else {
+      //   return window.location.href = fixedAndroidUrl
+      // }
+    }
+    //获取url参数
+    function getQueryVariable(variable) {
+      var query = window.location.search.substring(1);
+      var vars = query.split("&");
+      for (var i = 0; i < vars.length; i++) {
+        var pair = vars[i].split("=");
+        if (pair[0] == variable) { return pair[1]; }
+      }
+      return (false);
+    }
+    function getBlessingInfo() {
+      const prayId = getQueryVariable('id');//从路由里获取id的值
+      if (!prayId) { console.log('请在路由中传入参数id'); return }
+      $.get(`${baseUrl}/pray/detail`, { prayId }, function (res) {
+        if (res.code == 0) {
+          const { avatar, content, praiseNum, username } = res.data
+          // 用户头像
+          if (avatar) {
+            $("#userAvatar").attr("src", avatar)
+          }
+          // 用户昵称
+          if (username) {
+            $("#nickName").text(username)
+          }
+          // 点赞数
+          if (praiseNum) {
+            $("#praiseNum").text(praiseNum)
+          }
+          // 祈福内容
+          if (content) {
+            $("#infoDesc").text(content)
+          }
+        }
+      })
+    }
+    $(document).ready(function () {
+      $("#playVideo").click(myVideoPlay)
+      $("#download").click(downloadApp)
+      $("#myVideo").on("play",myVideoStart)
+      $("#myVideo").on("pause",myVideoPause)
+      getBlessingInfo()
+    })
+  </script>
+</body>
+
+</html>

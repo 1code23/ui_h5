@@ -1,0 +1,24 @@
+/*公共的头部*/
+.header {
+	padding: 0px 5px 0;
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	font-size: 18px;
+	color: #202020;
+	background-color: #fff;
+	border-bottom: 1px solid #EEEEEF;
+	z-index: 99;
+}
+.header span:last-child{
+	width: 40px;
+	height: 40px;
+}
+.red {
+	color: #EA4526;
+}

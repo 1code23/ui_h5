@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Droi Digital Universe</title>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <style>
+    *,
+    body {
+      padding: 0;
+      margin: 0;
+    }
+
+    img {
+      width: 100%;
+      display: block
+    }
+
+    .logo {
+      width: 40px;
+      cursor: pointer;
+    }
+
+    .topWrapper {
+      height: 44px;
+      background-color: #fff;
+      padding: 0px 21px;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .topWrapper .navBtn {
+      width: 22px;
+      height: 22px;
+    }
+
+    .myMenus {
+      padding: 24px;
+    }
+
+    .myMenus .linkArea {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .myMenus .linkArea+.linkArea {
+      margin-top: 30px;
+    }
+
+    .myMenus .linkArea .title {
+      padding: 10px 0px;
+      line-height: 19px;
+      color: #999;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .myMenus .linkArea .linkItem {
+      padding: 12px 0px;
+      text-decoration: none;
+      color: #333;
+      height: 19px;
+      font-size: 14px;
+      line-height: 19px;
+      display: flex;
+      align-items: center;
+    }
+
+    .myMenus .langImg {
+      width: 21px;
+      height: 14px;
+      margin-right: 12px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="menuPage">
+    <div class="topWrapper">
+      <div class="logo" onclick="handleClickLogo()">
+        <img src="./imgs/img_logo.png" alt="">
+      </div>
+      <div class="mobile navBtn" onclick="handleNavClose()">
+        <img src="./imgs/nav_btn_close.png" alt="">
+      </div>
+    </div>
+    <div class="myMenus">
+      <div class="linkArea">
+        <div class="title lang" langKey="productsNav">PRODUCTS</div>
+        <a href="./performance.html" class="linkItem lang" langKey="performNav">Supreme Performance</a>
+        <a href="./smartApp.html" class="linkItem lang" langKey="smartNav">Smart Application Scenarios</a>
+        <a href="./camera.html" class="linkItem lang" langKey="cameraNav">Camera System</a>
+        <a href="./liteApp.html" class="linkItem lang" langKey="liteNav">Lite Application</a>
+        <a href="./darkMode.html" class="linkItem lang" langKey="darkNav">Aesthetics of Vitality</a>
+      </div>
+      <div class="linkArea disc">
+        <div class="title lang" langKey="companyNav">COMPANY</div>
+        <!-- <a href="./partners.html" class="linkItem">Partners</a> -->
+        <a href="./contactUs.html" class="linkItem lang" langKey="contactUs">Contact Us</a>
+      </div>
+      <div class="linkArea disc">
+        <div class="title lang" langKey="languageNav">LANGUAGE</div>
+        <div class="translate linkItem" langId="en-us">
+          <!-- <img class="langImg" src="./imgs/lang_english.png" alt=""> -->
+          <span>English<span />
+        </div>
+        <div class="translate linkItem" langId="es-es">
+          <!-- <img class="langImg" src="./imgs/lang_spanish.png" alt=""> -->
+          <span>Español<span />
+        </div>
+        <div class="translate linkItem" langId="fr">
+          <!-- <img class="langImg" src="./imgs/lang_spanish.png" alt=""> -->
+          <span>Français<span />
+        </div>
+        <div class="translate linkItem" langId="ar">
+          <!-- <img class="langImg" src="./imgs/lang_spanish.png" alt=""> -->
+          <span>عربي<span />
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script type="text/javascript" src="./lang/language.js"></script>
+  <script type="text/javascript">
+    function handleClickLogo() {
+      location.href = "index.html"
+    }
+    function handleNavClose() {
+      // window.location.replace(document.referrer)
+      // console.log( document.domain);
+      // console.log( window.location.host);
+      if(document.referrer.indexOf("mobileMenu") != -1){
+        location.href = "index.html"
+      }else{
+        window.location.replace(document.referrer)
+      }
+    }
+  </script>
+</body>
+
+</html>

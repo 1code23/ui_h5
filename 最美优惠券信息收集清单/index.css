@@ -1,0 +1,36 @@
+html{
+  font-size: 14px;
+}
+p{
+  text-indent: 2em;
+}
+a{
+  text-decoration: none;
+  color: #1B67F6;
+}
+.desc{
+  line-height: 2;
+  text-align: justify;
+}
+.box{
+  padding: 20px;
+}
+.title{
+  font-weight: 600;
+}
+.borderBox{
+  margin-left: 2em;
+  border: 1px solid #000;
+  display: flex;
+}
+.borderBox span{
+  display: inline-block;
+  padding:5px 10px;
+}
+.borderBox span:first-child{
+  border-right: 1px solid #000;
+}
+.borderBox span:last-child{
+  flex: 1;
+  text-align: center;
+}

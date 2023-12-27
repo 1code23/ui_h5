@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>分身有术</title>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimun-scale=1.0,user-scalable=no">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black"> 
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="shortcut icon" href="favicon.ico" />
+  <style>
+    body{margin:0; position: relative; font-family: "微软雅黑"; background: #fff;color: #191E34;}
+    .box{padding:0px 0; color:#666; text-align: justify; font-size:14px;overflow:hidden;}
+    h2{
+    	text-align: center;
+	    color: #EA4526;
+	    font-size: 20px;
+    	margin-bottom: 0;
+    }
+    h3{font-size: 14px; color:#EA4526;}
+    .composition-herder {margin-top: 0px;box-sizing: border-box;padding-left: 20px;}
+    .line {padding-bottom: 8px;display: inline-block;}
+    .problems-wrap-line {
+    	position: absolute;
+    	width: 100%;
+    	border-bottom: 1px solid #F5F5F6;
+    }
+    .problems-list {
+    	padding: 15px 0;
+    	box-sizing: border-box;
+    	border-bottom: 1px solid #F5F5F6;
+    	display: flex;
+    	justify-content: space-between;
+    	align-items: center;
+    }
+    .problems-title {
+    	font-weight: bold;
+    	font-size: 16px;
+    }
+    .problems-next {
+    	padding: 0 20px;
+    	position: relative;
+    	top: 2px;
+    	display: flex;
+    	align-items: center;
+    }
+    .problems-next img {
+    	width: 20px;
+    }
+    .problems-next span {
+    	font-size: 13px;
+    }
+    .problems-hidden {
+    	display: none;
+    }
+    .problems-info {
+    	padding-right: 20px;
+    	position: relative;
+    }
+    .line-weight {
+    	font-weight: 600;
+    }
+    .problems-wrap-specl .problems-next {
+    	top: -6px;
+    }
+    .problems-wrap-specl .problems-next-rate {
+    	top: -8px;
+    }
+    .problems-check {
+    	border-bottom: 0px;
+	    text-align: center;
+	    padding-right: 30px;
+	    display: flex;
+	    align-items: center;
+	    justify-content: center;
+	    color: #34DDA5;
+    }
+    .problems-more {
+    	color: #34DDA5;
+    	border-bottom: 0px;
+    	overflow: hidden;
+    }
+    .problems-more div {
+    	float: left;
+    	display: flex;
+    	align-items: center;
+    }
+    .problems-more div img {
+    	width: 20px;
+	    position: relative;
+	    top: 2px;
+	    left: 2px;
+	    transition: 0.3s;
+    }
+    .problems-more-handle div img {
+    	top: 1px;
+    	transform: rotate(180deg);
+    	transition: 0.3s;
+    }
+    .problems-hidden-wrap {
+    	display: none;
+    }
+    .problems-show-wrap {
+    	display: block;
+    }
+  </style>
+
+</head>
+<body>
+<div class="box">
+	<!--帮助文档-->
+	<div class="composition-herder article-wrap">
+		<!--<div class="problems-wrap">
+			<div class="problems-list problems-title">
+				<span>帮助文档</span>
+			</div>
+		</div>
+		<div class="problems-wrap">
+			<div class="problems-list">
+				<span onclick="problemDetail({element:$(this)})">1.分身有术Pro如何收费？</span>
+				<span class="problems-next" onclick="problemNext({element:$(this)})">
+					<img src="images/icon_zan.png"/>
+					<span>120</span>
+				</span>
+			</div>
+		</div>
+		<div class="problems-wrap">
+			<div class="problems-list">
+				<span onclick="problemDetail({element:$(this)})">2.一台手机能开多少个分身？</span>
+				<span class="problems-next" onclick="problemNext({element:$(this)})">
+					<img src="images/icon_zan.png"/>
+					<span>120</span>
+				</span>
+			</div>
+		</div>
+		<div class="problems-wrap">
+			<div class="problems-list problems-check">
+				<span onclick="powerCheck()">权限检查</span>
+			</div>
+		</div>-->
+	</div>
+	<div class="article-line" style="width: 100%;height: 4px;background-color: #E2E2E2;display: none;"></div>
+	<!--常见问题-->
+	<div class="composition-herder composition-issue">
+		<!--<div class="problems-wrap">
+			<div class="problems-list problems-title">
+				<span>常见问题</span>
+			</div>
+		</div>
+		<div class="problems-wrap">
+			<div class="problems-list">
+				<span onclick="problemDetail({element:$(this)})">1.分身有术Pro如何收费？</span>
+				<span class="problems-next" onclick="problemNext({element:$(this)})">
+					<img src="images/icon_zan.png"/>
+					<span>120</span>
+				</span>
+			</div>
+		</div>
+		<div class="problems-wrap">
+			<div class="problems-list">
+				<span onclick="problemDetail({element:$(this)})">2.一台手机能开多少个分身？</span>
+				<span class="problems-next" onclick="problemNext({element:$(this)})">
+					<img src="images/icon_zan.png"/>
+					<span>120</span>
+				</span>
+			</div>
+		</div>
+		<div class="problems-wrap">
+			<div class="problems-list problems-more">
+				<div onclick="moreIssue({element:$(this)})">
+					<span>更多问题</span>
+					<img src="images/icon_more_down.png"/>
+				</div>
+			</div>
+		</div>-->
+	</div>
+</div>
+ <!--<script src="https://cdn.bootcss.com/vConsole/3.3.4/vconsole.min.js"></script>
+  <script>
+    new VConsole();
+  </script>-->
+<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+	/*
+		/help/list   GET 获取列表页
+		/help/more/list?id=1  GET获取更多  id值为/help/list 接口输出的type_id
+		/help/info?id=2   GET获取详情内容  id值为/help/list 接口输出的id
+		/help/info         PUT点赞   body体{"id": 2}id值为/help/list 接口输出的id
+	*/
+//	var url = "https://api-location.yy845.com"; // 最新
+	var url = "https://api-spare.oo523.com:8060"; // 正式服原来
+//	var url = "https://spare-api.freemeos.com"; // 正式服
+//	var url = "http://192.168.40.206:8060"; // 测试服
+  // 页面初始化
+  init(url);
+	// 页面初始化
+	function init(url) {
+		issueInit(url);
+	};
+	// 问题列表
+	function issueInit(url) {
+		$.ajax({
+			type: "get",
+			url: url + "/help/list",
+			data: {},
+			contentType : "application/json",
+			success: function (res) {
+				if (res.status == 200) {
+					// 帮助文档
+					var article = "", issue = "",articleHtml = "", issueHtml = "", type_id = "";
+					if (res.data["帮助文档"]) {
+						article = res.data["帮助文档"];
+						articleHtml = `<div class="problems-wrap">
+														<div class="problems-list problems-title">
+															<span>帮助文档</span>
+														</div>
+													</div>`;
+						article.forEach((item,index) => {
+							articleHtml += `<div class="problems-wrap">
+								<div class="problems-list" data-id="${item.id}" onclick="problemDetail({element:$(this)})">
+									<span>${item.title}</span>
+									<span data-id="${item.id}" class="problems-next">
+										<img src="images/icon_zan.png"/>
+										<span>${item.support_count}</span>
+									</span>
+								</div>
+							</div>`;
+						});
+						articleHtml += `<div class="problems-wrap">
+								<div class="problems-list problems-check">
+									<span onclick="powerCheck()">权限检查</span>
+								</div>
+							</div>`;
+						$(".article-wrap").html(articleHtml);
+						$(".article-line").show();
+					} else {
+						articleHtml += `<div class="problems-wrap">
+								<div class="problems-list problems-check">
+									<span onclick="powerCheck()">权限检查</span>
+								</div>
+							</div>`;
+						$(".article-wrap").html(articleHtml);
+						$(".article-line").show();
+					}
+					// 常见问题
+					if (res.data["常见问题"]) {
+						issue = res.data["常见问题"];
+						issueHtml = `<div class="problems-wrap">
+								<div class="problems-list problems-title">
+									<span>常见问题</span>
+								</div>
+							</div>`;
+						issue.forEach((item,index) => {
+							issueHtml += `<div class="problems-wrap">
+													<div class="problems-list" data-id="${item.id}" onclick="problemDetail({element:$(this)})">
+														<span>${item.title}</span>
+														<span data-id="${item.id}" class="problems-next">
+															<img src="images/icon_zan.png"/>
+															<span>${item.support_count}</span>
+														</span>
+													</div>
+												</div>`;
+						});
+						issueHtml += `<div class="problems-wrap">
+								<div class="problems-list problems-more">
+									<div onclick="moreIssue({element:$(this)})">
+										<span>更多问题</span>
+										<img src="images/icon_more_down.png"/>
+									</div>
+								</div>
+							</div>`;
+						$(".composition-issue").html(issueHtml);
+						if (issue.length) {
+							type_id = issue[0].type_id;
+							issueMore(url, type_id);
+						};
+					}
+//					console.log(res.data["帮助文档"],res.data["常见问题"],res,"获取列表页");
+				} else {
+					console.log("报错了")
+				}
+				
+			},
+			error: function (error) {
+				console.log(error);
+			}
+		});
+	};
+	// 更多问题
+	function issueMore(url, type_id) {
+		$.ajax({
+			type: "get",
+			url: url + `/help/more/list?id=${type_id}`,
+			data: {},
+			contentType : "application/json",
+			success: function (res) {
+				if (res.status == 200) {
+					var html = "", issue = res.data["常见问题"];
+					issue.forEach((item,index) => {
+						html += `<div class="problems-wrap problems-hidden-wrap">
+									<div class="problems-list" data-id="${item.id}" onclick="problemDetail({element:$(this)})">
+										<span data-id="${item.id}">${item.title}</span>
+										<span data-id="${item.id}" class="problems-next">
+											<img src="images/icon_zan.png"/>
+											<span>${item.support_count}</span>
+										</span>
+									</div>
+								</div>
+							`;
+					});
+					$(".problems-more").parent().before(html);
+				};
+//				console.log(res,"更多问题");
+			},
+			error: function (error) {
+				console.log(error);
+			}
+		});
+	};
+	// 问题详情
+	function problemDetail(elemt) {
+		var id = elemt.element.attr("data-id");
+//		window.open(`lay1_detail.html?id=${id}`, "_blank");
+		location.href = `lay1_detail.html?id=${id}`;
+	};
+	// 问题点赞
+	function problemNext(elemt) {
+		var id = elemt.element.attr("data-id"),
+			num = elemt.element.find("span").text();
+		$.ajax({
+			type: "put",
+			url: url + `/help/info`,
+			data: {id},
+			success: function (res) {
+				if (res.status == 200) {
+					// 点赞成功
+					num++;
+					elemt.element.find("span").text(num);
+				}
+			},
+			error: function (error) {
+				console.log(error);
+			}
+		});
+//		console.log(id, elemt.element.find("span").text(), "问题点赞");
+	};
+	// 权限检查
+	function powerCheck() {
+		window.ADocker.checkPermission();
+		console.log("权限检查");
+	};
+	// 更多常见问题
+	function moreIssue(elemt) {
+		var parentDiv = elemt.element.parent();
+		if (parentDiv.hasClass("problems-more-handle")) {
+			// 收起隐藏
+			parentDiv.removeClass("problems-more-handle");
+			$(".problems-hidden-wrap").removeClass("problems-show-wrap");
+			elemt.element.find("span").text("更多问题");
+//			console.log(111, elemt.element.find("span"))
+		} else{
+			// 展开更多
+			parentDiv.addClass("problems-more-handle");
+			$(".problems-hidden-wrap").addClass("problems-show-wrap");
+			elemt.element.find("span").text("收起");
+//			console.log(222, elemt.element.find("span"))
+		};
+	};
+</script>
+</body>
+</html>
